@@ -1,0 +1,17 @@
+# Оригінальні важкі фото (сайт використовує img-web/)
+img/
+
+# Локальний бекап старої версії
+index-classic-v1.html
+
+# Службові файли Claude Code
+.claude/
+.mcp.json
+
+# Системне сміття
+Thumbs.db
+.DS_Store
+node_modules/
+
+# Оригінал музики (сайт використовує стиснутий music.mp3)
+good_b_music-beyond-the-time-main-7425.mp3

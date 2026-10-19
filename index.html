@@ -1,0 +1,1915 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Erik & Arina · Свадьба 20 ноября 2026</title>
+<meta name="description" content="Приглашение на свадьбу Эрика и Арины. 20 ноября 2026 года, SOL Church, Orangevale, CA. Подтвердите своё присутствие онлайн.">
+<!-- TODO перед публікацією: замінити домен на реальний (og:url та og:image мають бути АБСОЛЮТНИМИ,
+     інакше Telegram / WhatsApp / iMessage не покажуть фото у прев'ю посилання) -->
+<meta property="og:url" content="https://erik-arina.com/">
+<meta property="og:title" content="Erik & Arina · 20.11.2026">
+<meta property="og:description" content="Приглашаем вас разделить с нами самый важный день нашей жизни.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:image" content="https://erik-arina.com/img-web/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#363A22">
+
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="favicon-64.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img-web/img_1612.jpg" media="(max-width: 899px)" fetchpriority="high">
+<link rel="preload" as="image" href="img-web/img_1610.jpg" media="(min-width: 900px)" fetchpriority="high">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Свадьба Эрика и Арины",
+  "startDate": "2026-11-20T15:30:00-08:00",
+  "endDate": "2026-11-20T22:00:00-08:00",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "location": {
+    "@type": "Place",
+    "name": "SOL Church",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "5948 Pecan Ave",
+      "postalCode": "95662",
+      "addressLocality": "Orangevale",
+      "addressRegion": "CA",
+      "addressCountry": "US"
+    }
+  }
+}
+</script>
+
+<style>
+/* ============================================================
+   ПАЛИТРА: оливково-костяная (только эти 5 цветов и их прозрачности)
+   ============================================================ */
+:root{
+  --bone:#F3EFE6;
+  --sand:#E2DAC6;
+  --sage:#A7A880;
+  --olive:#5F6438;
+  --forest:#363A22;
+
+  --font-display:'Cormorant', Georgia, serif;
+  --font-body:'Manrope', -apple-system, sans-serif;
+
+  --ease:cubic-bezier(.16,1,.3,1);
+  --radius:1.5rem;
+  --nav-h:64px;
+  --bar-h:64px;
+  --safe-b:env(safe-area-inset-bottom, 0px);
+}
+
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:calc(var(--nav-h) + 10px);
+}
+html, body{ overflow-x:clip; overflow-anchor:none; }
+
+body{
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.65;
+  color:var(--forest);
+  background:var(--bone);
+  -webkit-font-smoothing:antialiased;
+}
+body.is-locked{ overflow:hidden; }
+
+img{ display:block; max-width:100%; height:auto; }
+picture{ display:contents; }
+h1,h2,h3{
+  font-family:var(--font-display);
+  font-weight:500;
+  line-height:1.06;
+  letter-spacing:-.01em;
+}
+a{ color:inherit; }
+button{ font-family:var(--font-body); }
+
+.container{ width:min(1100px, 100% - 2.5rem); margin-inline:auto; }
+
+/* плівкова зернистість поверх усього */
+body::after{
+  content:"";
+  position:fixed; inset:0;
+  z-index:90;
+  pointer-events:none;
+  opacity:.045;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ============================================================
+   ДОСТУПНІСТЬ
+   ============================================================ */
+.skip-link{
+  position:absolute; left:1rem; top:-4rem; z-index:300;
+  background:var(--forest); color:var(--bone);
+  padding:.7rem 1.2rem; border-radius:999px;
+  text-decoration:none; font-weight:600;
+  transition:top .3s var(--ease);
+}
+.skip-link:focus{ top:1rem; }
+:focus-visible{ outline:2px solid var(--sage); outline-offset:3px; border-radius:4px; }
+.visually-hidden{ position:absolute; width:1px; height:1px; clip-path:inset(50%); overflow:hidden; white-space:nowrap; }
+
+/* ============================================================
+   ЛІНІЯ ПРОГРЕСУ ПРОКРУТКИ
+   Керується JS (transform у rAF) — стабільно в усіх браузерах,
+   на відміну від CSS scroll-timeline, який смикається у Chrome,
+   коли ховається адресний рядок.
+   ============================================================ */
+.progress{
+  position:fixed; top:0; left:0; z-index:210;
+  width:100%; height:3px;
+  background:linear-gradient(90deg, var(--sage), var(--olive));
+  transform:scaleX(0);
+  transform-origin:left;
+  will-change:transform;
+  transition:transform .12s linear;
+}
+
+/* ============================================================
+   ПРЕЛОАДЕР
+   ============================================================ */
+.preloader{
+  position:fixed; inset:0; z-index:250;
+  background:var(--forest);
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  gap:1.2rem;
+  color:var(--bone);
+  transition:transform .9s var(--ease);
+  cursor:pointer;
+}
+.preloader.is-done{ transform:translateY(-101%); }
+.pre-mono{
+  font-family:var(--font-display);
+  font-size:clamp(3rem, 12vw, 5rem);
+  letter-spacing:.06em;
+  opacity:0;
+  animation:preFade .9s var(--ease) .1s forwards;
+}
+.pre-mono .amp{ font-style:italic; color:var(--sage); }
+.pre-date{
+  font-size:.85rem; font-weight:600;
+  letter-spacing:.45em; text-indent:.45em;
+  color:var(--sand);
+  opacity:0;
+  animation:preFade .9s var(--ease) .35s forwards;
+}
+.pre-line{
+  width:min(220px, 50vw); height:1px;
+  background:rgba(226,218,198,.25);
+  overflow:hidden;
+}
+.pre-line i{
+  display:block; height:100%;
+  background:var(--sage);
+  transform:scaleX(0); transform-origin:left;
+  animation:preLine 1.1s var(--ease) .3s forwards;
+}
+@keyframes preFade{ to{ opacity:1; } }
+@keyframes preLine{ to{ transform:scaleX(1); } }
+
+/* ============================================================
+   НАВІГАЦІЯ (мінімальна)
+   ============================================================ */
+.nav{
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  height:var(--nav-h);
+  display:flex; align-items:center;
+  transition:background .5s var(--ease), box-shadow .5s;
+}
+.nav.is-scrolled{
+  background:rgba(243,239,230,.8);
+  -webkit-backdrop-filter:blur(18px) saturate(160%);
+  backdrop-filter:blur(18px) saturate(160%);
+  box-shadow:0 1px 0 rgba(54,58,34,.08);
+}
+.nav-inner{ display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+.nav-logo{
+  display:flex; align-items:center; gap:.6rem;
+  font-family:var(--font-display);
+  font-size:1.4rem; font-weight:600;
+  text-decoration:none;
+  flex:none;
+}
+.nav-logo .amp{ font-style:italic; color:var(--olive); }
+.nav-right{ display:flex; align-items:center; gap:1.1rem; flex:none; }
+.nav-date{
+  font-size:.85rem; font-weight:700;
+  letter-spacing:.16em;
+  color:var(--olive);
+  opacity:0;
+  transform:translateY(-4px);
+  transition:opacity .6s var(--ease), transform .6s var(--ease);
+  pointer-events:none;
+}
+body.show-nav-date .nav-date{ opacity:1; transform:none; }
+.nav-cta-mini{
+  display:none;
+  background:var(--forest); color:var(--bone);
+  padding:.6rem 1.4rem;
+  border-radius:999px;
+  text-decoration:none;
+  font-size:.88rem; font-weight:700;
+  transition:background .25s, transform .2s var(--ease);
+}
+.nav-cta-mini:hover{ background:var(--olive); }
+.nav-cta-mini:active{ transform:scale(.96); }
+
+.nav-sound{
+  display:grid; place-items:center;
+  width:38px; height:38px;
+  border-radius:999px;
+  border:1.5px solid rgba(54,58,34,.22);
+  background:transparent;
+  color:var(--olive);
+  cursor:pointer;
+  flex:none;
+  transition:background .25s, border-color .25s, transform .2s var(--ease);
+}
+.nav-sound:hover{ background:rgba(167,168,128,.14); border-color:var(--sage); }
+.nav-sound:active{ transform:scale(.92); }
+.nav-sound svg{ width:17px; height:17px; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.nav-sound .icon-on{ display:none; }
+.nav-sound .icon-off{ display:block; }
+.nav-sound.is-on .icon-on{ display:block; }
+.nav-sound.is-on .icon-off{ display:none; }
+.nav-links{
+  display:none;
+  list-style:none; gap:2rem;
+}
+.nav-links a{ text-decoration:none; font-size:.92rem; font-weight:600; opacity:.75; transition:opacity .2s; }
+.nav-links a:hover{ opacity:1; }
+@media (min-width:900px){
+  .nav-links{ display:flex; }
+  .nav-cta-mini{ display:inline-block; }
+}
+
+/* ============================================================
+   ПЛАВАЮЧА ПАНЕЛЬ ДІЙ (мобільний патерн)
+   ============================================================ */
+.actionbar{
+  position:fixed; left:50%; bottom:calc(var(--safe-b) + 22px);
+  z-index:205;
+  /* ховаємо глибоко за край (разом із тінню), щоб під час появи
+     її не було видно завчасно на жодному браузері */
+  transform:translate(-50%, 300%);
+  display:flex; align-items:center; gap:.5rem;
+  padding:.45rem;
+  border-radius:999px;
+  background:rgba(54,58,34,.82);
+  -webkit-backdrop-filter:blur(20px) saturate(160%);
+  backdrop-filter:blur(20px) saturate(160%);
+  border:1px solid rgba(243,239,230,.14);
+  box-shadow:0 24px 60px -18px rgba(54,58,34,.7), inset 0 1px 0 rgba(243,239,230,.12);
+  transition:transform .5s var(--ease), visibility 0s linear .5s;
+  visibility:hidden;
+}
+.actionbar.is-shown{
+  transform:translate(-50%, 0);
+  visibility:visible;
+  transition:transform .5s var(--ease), visibility 0s;
+}
+.ab-primary{
+  display:inline-block;
+  background:var(--bone); color:var(--forest);
+  padding:.75rem 1.6rem;
+  border-radius:999px;
+  text-decoration:none;
+  font-size:1rem; font-weight:700;
+  transition:transform .2s var(--ease), background .2s;
+}
+.ab-primary:active{ transform:scale(.96); }
+.ab-icon{
+  display:grid; place-items:center;
+  width:46px; height:46px;
+  border-radius:999px;
+  background:rgba(243,239,230,.12);
+  border:0; cursor:pointer;
+  color:var(--bone);
+  text-decoration:none;
+  transition:background .2s, transform .2s var(--ease);
+}
+.ab-icon:active{ transform:scale(.92); }
+.ab-icon svg{ width:20px; height:20px; stroke:currentColor; fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+
+/* ============================================================
+   КІНОСТРІЧКА: sticky-stack сцени
+   ============================================================ */
+.cinema{ position:relative; }
+.chapter{
+  position:sticky; top:0;
+  /* svh замість dvh: висота НЕ змінюється, коли на телефоні
+     ховається/з'являється адресний рядок, тому сцени не смикаються */
+  height:100vh;
+  height:100svh;
+  overflow:hidden;
+  display:flex; flex-direction:column; justify-content:flex-start;
+}
+.chapter + .chapter{
+  border-radius:26px 26px 0 0;
+  box-shadow:0 -24px 70px rgba(54,58,34,.45);
+}
+.chapter-bg{ position:absolute; inset:0; z-index:0; }
+.chapter-bg img{
+  width:100%; height:100%;
+  object-fit:cover;
+}
+/* текст сцен живе ВГОРІ, на світлому небі фотографій,
+   тому вуаль світла і йде згори донизу */
+.chapter-scrim{
+  position:absolute; inset:0; z-index:1;
+  background:linear-gradient(to bottom,
+    rgba(243,239,230,.94) 0%,
+    rgba(243,239,230,.62) 32%,
+    rgba(243,239,230,.18) 50%,
+    rgba(243,239,230,0) 64%);
+}
+.chapter-content{
+  position:relative; z-index:2;
+  color:var(--forest);
+  /* фіксований відступ у rem: не залежить від висоти в'юпорта,
+     тому текст не рухається, коли браузер ховає адресний рядок */
+  padding:calc(var(--nav-h) + 1.8rem) 1.6rem 0;
+  width:min(760px, 100%);
+  margin-inline:auto;
+}
+.chapter-content h2{
+  font-size:clamp(2.4rem, 9vw, 4.5rem);
+  margin-bottom:.7rem;
+}
+
+.chapter-content p{
+  max-width:46ch;
+  color:var(--olive);
+  font-size:clamp(1.15rem, 3.4vw, 1.35rem);
+  line-height:1.55;
+  font-weight:500;
+}
+
+/* HERO-сцена */
+.hero .chapter-scrim{
+  background:linear-gradient(to bottom,
+    rgba(243,239,230,.92) 0%,
+    rgba(243,239,230,.72) 34%,
+    rgba(243,239,230,.38) 52%,
+    rgba(243,239,230,0) 68%,
+    rgba(54,58,34,.24) 82%,
+    rgba(54,58,34,.62) 100%);
+}
+.hero{ justify-content:space-between; }
+.hero-top{ position:relative; z-index:2; padding-top:calc(var(--nav-h) + 1.2rem); text-align:center; }
+.hero-pill{
+  display:inline-block;
+  padding:.55rem 1.3rem;
+  border-radius:999px;
+  background:rgba(243,239,230,.4);
+  -webkit-backdrop-filter:blur(14px);
+  backdrop-filter:blur(14px);
+  border:1px solid rgba(54,58,34,.18);
+  color:var(--olive);
+  font-size:.82rem; font-weight:700;
+  letter-spacing:.3em; text-indent:.3em;
+  box-shadow:inset 0 1px 0 rgba(243,239,230,.6);
+}
+.hero-names{
+  text-align:center;
+  color:var(--forest);
+  font-size:clamp(3.2rem, 15vw, 7rem);
+  line-height:1.02;
+  margin-top:clamp(1.2rem, 4vh, 2.4rem);
+}
+.hero-names .line{ display:block; overflow:hidden; padding-bottom:.06em; }
+.hero-names .inner{ display:block; transform:translateY(112%); }
+.hero-names .amp{
+  font-style:italic;
+  font-size:.42em;
+  color:var(--olive);
+  line-height:1;
+}
+body.is-ready .hero-names .inner{ animation:riseUp 1s var(--ease) forwards; }
+body.is-ready .hero-names .line:nth-child(2) .inner{ animation-delay:.12s; }
+body.is-ready .hero-names .line:nth-child(3) .inner{ animation-delay:.22s; }
+@keyframes riseUp{ to{ transform:translateY(0); } }
+/* повільний кінематографічний зум фото */
+@media (prefers-reduced-motion: no-preference){
+  .hero .chapter-bg img{
+    transform:scale(1.1);
+    animation:kenburns 16s var(--ease) forwards;
+  }
+  @keyframes kenburns{ to{ transform:scale(1); } }
+}
+
+/* ДЕСКТОП: асиметрична редакційна композиція.
+   Імена та підписи йдуть у лівий стовпчик над відкритою частиною кадру,
+   персонажі (центр/праворуч) ніколи не перекриваються текстом. */
+@media (min-width:900px){
+  .hero-top{
+    width:min(1100px, 100% - 5rem);
+    margin-inline:auto;
+    text-align:left;
+  }
+  .hero-names{
+    text-align:left;
+    font-size:clamp(3.4rem, 6.2vw, 5.4rem);
+    max-width:12ch;
+  }
+  .hero .chapter-bg img{ object-position:68% center; }
+  /* вертикальні фото на широкому екрані: тримаємо обличчя в кадрі */
+  .chapter:not(.hero):not(.quote-chapter) .chapter-bg img{ object-position:center 30% !important; }
+  .hero .chapter-scrim{
+    background:
+      linear-gradient(102deg,
+        rgba(243,239,230,.95) 0%,
+        rgba(243,239,230,.78) 30%,
+        rgba(243,239,230,.28) 54%,
+        rgba(243,239,230,0) 70%),
+      linear-gradient(to top, rgba(54,58,34,.4) 0%, rgba(54,58,34,0) 26%);
+  }
+
+  /* текст сцен угорі ліворуч, на світлому небі */
+  .chapter-content:not(.chapter-content--center){
+    margin-inline:0;
+    width:min(1100px, 100% - 5rem);
+    margin-left:auto; margin-right:auto;
+    max-width:none;
+    padding-left:0;
+  }
+  .chapter-content:not(.chapter-content--center) p{ max-width:38ch; }
+  .chapter:not(.hero):not(.chapter--dark) .chapter-scrim{
+    background:
+      linear-gradient(to bottom, rgba(243,239,230,.92) 0%, rgba(243,239,230,.5) 30%, rgba(243,239,230,0) 55%),
+      linear-gradient(102deg, rgba(243,239,230,.6) 0%, rgba(243,239,230,.12) 34%, rgba(243,239,230,0) 55%);
+  }
+}
+
+/* СЦЕНА-ТАЙМЕР */
+.chapter--dark{
+  background:var(--forest);
+  justify-content:center;
+  text-align:center;
+}
+.countdown-invite{
+  font-family:var(--font-display);
+  font-size:clamp(1.5rem, 5.6vw, 2.3rem);
+  line-height:1.3;
+  color:var(--bone);
+  max-width:24ch;
+  margin:0 auto 1.1rem;
+}
+.countdown-title{
+  font-family:var(--font-display);
+  font-style:italic;
+  font-size:clamp(1.05rem, 3.6vw, 1.4rem);
+  color:var(--sage);
+  margin-bottom:2.4rem;
+}
+.countdown-grid{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:2rem 1rem;
+  max-width:560px;
+  margin-inline:auto;
+}
+@media (min-width:700px){
+  .countdown-grid{ grid-template-columns:repeat(4,1fr); max-width:760px; }
+}
+.cd-value{
+  font-family:var(--font-display);
+  font-size:clamp(3.6rem, 15vw, 5.6rem);
+  font-weight:500;
+  line-height:1;
+  color:var(--bone);
+  font-variant-numeric:tabular-nums;
+  display:inline-block;
+}
+.cd-label{
+  margin-top:.4rem;
+  font-size:.8rem; font-weight:600;
+  letter-spacing:.24em; text-transform:uppercase;
+  color:var(--sage);
+}
+.countdown-date{
+  margin-top:2.4rem;
+  font-size:.85rem; font-weight:700;
+  letter-spacing:.35em; text-indent:.35em;
+  color:var(--sand);
+}
+
+/* ============================================================
+   ЗВИЧАЙНІ СЕКЦІЇ
+   ============================================================ */
+.section{ position:relative; padding:5.5rem 0; background:var(--bone); }
+.section-head{ text-align:center; margin-bottom:2.8rem; }
+.section-head h2{
+  font-size:clamp(2.2rem, 8vw, 3.6rem);
+}
+.section-head .lede{
+  margin:1rem auto 0;
+  max-width:46ch;
+  color:var(--olive);
+}
+/* перша секція після кіно наїжджає округленням */
+.section--overlap{
+  border-radius:26px 26px 0 0;
+  margin-top:-26px;
+  z-index:3;
+  box-shadow:0 -24px 70px rgba(54,58,34,.35);
+}
+
+/* reveal */
+.reveal{
+  opacity:0; transform:translateY(30px);
+  transition:opacity .9s var(--ease), transform .9s var(--ease);
+  transition-delay:var(--d, 0s);
+}
+.reveal.is-visible{ opacity:1; transform:none; }
+@media (prefers-reduced-motion: reduce){
+  .reveal{ opacity:1; transform:none; }
+}
+
+/* ДЕТАЛІ */
+.details-grid{
+  display:grid; gap:2.2rem;
+}
+@media (min-width:900px){
+  .details-grid{ grid-template-columns:1.1fr .9fr; align-items:center; gap:4rem; }
+}
+.details-list{
+  list-style:none;
+  border-top:1px solid rgba(54,58,34,.14);
+}
+.details-list li{
+  display:flex; justify-content:space-between; align-items:baseline; gap:1rem;
+  padding:1.15rem 0;
+  border-bottom:1px solid rgba(54,58,34,.14);
+}
+.details-list .k{ font-weight:700; font-size:.92rem; white-space:nowrap; }
+.details-list .v{ text-align:right; color:var(--olive); }
+.details-link{
+  color:var(--forest);
+  font-weight:700;
+  text-decoration:none;
+  border-bottom:1.5px solid var(--sage);
+  padding-bottom:1px;
+  transition:color .25s, border-color .25s;
+}
+.details-link:hover{ color:var(--olive); border-color:var(--olive); }
+.details-media{
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:0 30px 80px -30px rgba(54,58,34,.4);
+}
+.details-media img{
+  width:100%;
+  aspect-ratio:4/5;
+  object-fit:cover;
+}
+
+/* ПРОГРАМА: горизонтальна стрічка зі snap */
+.program{ background:var(--sand); border-radius:26px; margin:0 .6rem; }
+.program-track{
+  display:flex; gap:1rem;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  padding:0 max(1.5rem, calc(50vw - 550px)) 1.6rem;
+  scrollbar-width:none;
+}
+.program-track::-webkit-scrollbar{ display:none; }
+.program-card{
+  position:relative;
+  flex:0 0 min(76vw, 300px);
+  scroll-snap-align:center;
+  border-radius:var(--radius);
+  padding:1.8rem 1.5rem;
+  min-height:300px;
+  display:flex; flex-direction:column; justify-content:flex-end;
+  overflow:hidden;
+  background:var(--bone);
+  isolation:isolate;
+}
+.program-card .t{
+  font-family:var(--font-display);
+  font-size:2.6rem; line-height:1;
+  font-variant-numeric:tabular-nums;
+  margin-bottom:.5rem;
+}
+.program-card h3{
+  font-family:var(--font-body);
+  font-size:1.05rem; font-weight:700;
+}
+.program-card p{ font-size:.92rem; color:var(--olive); margin-top:.3rem; }
+.program-card.has-photo{ color:var(--bone); }
+.program-card.has-photo p{ color:rgba(243,239,230,.9); }
+.program-card.has-photo .photo{
+  position:absolute; inset:0; z-index:-2;
+}
+.program-card.has-photo .photo img{ width:100%; height:100%; object-fit:cover; }
+.program-card.has-photo::after{
+  content:"";
+  position:absolute; inset:0; z-index:-1;
+  background:linear-gradient(to top, rgba(54,58,34,.78) 10%, rgba(54,58,34,.15) 65%);
+}
+/* вечірня картка: глибша вуаль, щоб атмосфера була як на заході сонця */
+.program-card.has-photo.program-card--evening::after{
+  background:linear-gradient(to top, rgba(54,58,34,.88) 8%, rgba(54,58,34,.35) 60%, rgba(54,58,34,.15) 100%);
+}
+.program-card--tint{ background:var(--sage); color:var(--forest); }
+.program-card--tint p{ color:rgba(54,58,34,.85); }
+.program-card--deep{ background:var(--forest); color:var(--bone); }
+.program-card--deep p{ color:var(--sand); }
+.program-hint{
+  text-align:center;
+  font-size:.8rem; font-weight:600;
+  letter-spacing:.12em;
+  color:var(--olive);
+  padding-bottom:1.6rem;
+  user-select:none; -webkit-user-select:none;
+}
+
+/* ДРЕС-КОД */
+.palette{
+  display:flex; justify-content:center; flex-wrap:wrap;
+  gap:1rem;
+  margin-top:2rem;
+}
+.swatch{
+  width:88px;
+  text-align:center;
+  font-size:.8rem; font-weight:700;
+  letter-spacing:.08em;
+  color:var(--olive);
+}
+.swatch i{
+  display:block; height:88px;
+  border-radius:50%;
+  margin-bottom:.55rem;
+  border:1px solid rgba(54,58,34,.12);
+  box-shadow:inset 0 3px 16px rgba(54,58,34,.12);
+  transition:transform .35s var(--ease);
+}
+.swatch:active i{ transform:scale(.92); }
+
+/* ============================================================
+   ГАЛЕРЕЯ: СВАЙП-КОЛОДА (адаптація 21st.dev Image Swiper)
+   ============================================================ */
+.deck-section{ overflow:hidden; }
+.deck-wrap{
+  position:relative;
+  height:min(66vh, 560px);
+  display:grid; place-items:center;
+}
+.deck{
+  position:relative;
+  width:min(76vw, 340px);
+  aspect-ratio:3/4;
+  touch-action:pan-y;
+  user-select:none; -webkit-user-select:none;
+}
+.deck-hint{ user-select:none; -webkit-user-select:none; }
+.deck-card{
+  position:absolute; inset:0;
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:0 30px 60px -20px rgba(54,58,34,.45);
+  transform:
+    translateX(var(--swipe-x, 0px))
+    rotate(var(--swipe-rot, 0deg))
+    translateY(calc(var(--i) * -14px))
+    scale(calc(1 - var(--i) * .045));
+  z-index:calc(20 - var(--i));
+  transition:transform .42s cubic-bezier(.22,1,.36,1), opacity .3s ease;
+  will-change:transform;
+}
+.deck-card img{
+  width:100%; height:100%;
+  object-fit:cover;
+  pointer-events:none;
+  user-select:none;
+  -webkit-user-select:none;
+}
+.deck-card.is-top{ cursor:grab; }
+.deck-card.is-top:active{ cursor:grabbing; }
+.deck-card[data-hidden="true"]{ visibility:hidden; }
+.deck-ui{
+  display:flex; align-items:center; justify-content:center;
+  gap:1.4rem;
+  margin-top:1.4rem;
+}
+.deck-count{
+  font-family:var(--font-display);
+  font-size:1.3rem;
+  font-variant-numeric:tabular-nums;
+  color:var(--olive);
+  min-width:64px;
+  text-align:center;
+}
+.deck-btn{
+  display:grid; place-items:center;
+  width:48px; height:48px;
+  border-radius:999px;
+  border:1.5px solid var(--sage);
+  background:transparent;
+  color:var(--forest);
+  cursor:pointer;
+  transition:background .25s, transform .2s var(--ease);
+}
+.deck-btn:hover{ background:rgba(167,168,128,.15); }
+.deck-btn:active{ transform:scale(.9); }
+.deck-btn svg{ width:18px; height:18px; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.deck-hint{
+  text-align:center;
+  margin-top:.6rem;
+  font-size:.8rem; font-weight:600;
+  letter-spacing:.12em;
+  color:var(--olive);
+}
+
+/* ============================================================
+   RSVP
+   ============================================================ */
+.rsvp-section{
+  background:var(--forest);
+  color:var(--bone);
+  border-radius:26px;
+  margin:0 .6rem;
+}
+.rsvp-grid{ display:grid; gap:2.4rem; }
+@media (min-width:900px){
+  .rsvp-grid{ grid-template-columns:1fr 1.1fr; gap:4rem; }
+}
+.rsvp-intro .eyebrow{
+  display:inline-block;
+  font-size:.78rem; font-weight:700;
+  letter-spacing:.32em; text-transform:uppercase;
+  color:var(--sage);
+  margin-bottom:.9rem;
+}
+.rsvp-intro h2{ font-size:clamp(2.2rem, 8vw, 3.4rem); margin-bottom:1rem; }
+.rsvp-intro p{ color:var(--sand); max-width:44ch; }
+
+.field{ margin-bottom:1.3rem; }
+.field label, .field-label-static{
+  display:block;
+  font-size:.85rem; font-weight:600;
+  margin-bottom:.45rem;
+  color:var(--sand);
+}
+.field .req{ color:var(--sage); }
+.field input[type="text"],
+.field select,
+.field textarea{
+  width:100%;
+  background:rgba(243,239,230,.07);
+  border:1.5px solid rgba(226,218,198,.35);
+  border-radius:1rem;
+  padding:.95rem 1.1rem;
+  color:var(--bone);
+  font-family:var(--font-body);
+  font-size:1rem;
+  transition:border-color .3s, background .3s;
+}
+.field input::placeholder,
+.field textarea::placeholder{ color:rgba(226,218,198,.55); }
+.field input:focus, .field select:focus, .field textarea:focus{
+  outline:none;
+  border-color:var(--sage);
+  background:rgba(243,239,230,.12);
+}
+.field select{
+  appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' fill='none'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%23E2DAC6' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 1.1rem center;
+}
+.field select option{ color:var(--forest); background:var(--bone); }
+.field textarea{ min-height:104px; resize:vertical; }
+
+.choice-row{ display:grid; grid-template-columns:1fr 1fr; gap:.7rem; }
+.field-duo{ display:grid; grid-template-columns:1fr 1fr; gap:.7rem; }
+
+.choice{ position:relative; }
+.choice input{ position:absolute; opacity:0; inset:0; cursor:pointer; }
+.choice span{
+  display:block; text-align:center;
+  padding:.95rem .8rem;
+  border-radius:1rem;
+  border:1.5px solid rgba(226,218,198,.35);
+  font-weight:700; font-size:1rem;
+  transition:background .3s, border-color .3s, color .3s, transform .2s var(--ease);
+}
+.choice input:active + span{ transform:scale(.97); }
+.choice input:checked + span{
+  background:var(--bone);
+  border-color:var(--bone);
+  color:var(--forest);
+}
+.choice input:focus-visible + span{ outline:2px solid var(--sage); outline-offset:2px; }
+
+.field-error{
+  display:none;
+  margin-top:.4rem;
+  font-size:.85rem; font-weight:600;
+  color:var(--sand);
+}
+.field.has-error input, .field.has-error .choice span{ border-color:var(--sage); }
+.field.has-error .field-error{ display:block; }
+
+.rsvp-submit{
+  width:100%;
+  background:var(--bone); color:var(--forest);
+  border:0; cursor:pointer;
+  padding:1.05rem 2rem;
+  border-radius:999px;
+  font-size:1rem; font-weight:700;
+  transition:background .25s, transform .2s var(--ease);
+}
+.rsvp-submit:hover{ background:var(--sand); }
+.rsvp-submit:active{ transform:scale(.98); }
+.rsvp-submit[disabled]{ opacity:.6; cursor:wait; transform:none; }
+.form-status{ margin-top:.9rem; font-size:.92rem; font-weight:600; min-height:1.4em; }
+.form-status.err{ color:var(--sage); }
+.honeypot{ position:absolute; left:-9999px; opacity:0; }
+
+.rsvp-success{
+  display:none;
+  text-align:center;
+  padding:3rem 1.5rem;
+  border:1.5px solid rgba(226,218,198,.35);
+  border-radius:var(--radius);
+}
+.rsvp-success.is-shown{ display:block; }
+.rsvp-success h3{ font-size:2.2rem; margin-bottom:.8rem; }
+.rsvp-success p{ color:var(--sand); }
+
+/* ============================================================
+   ПОДАРУНОК
+   ============================================================ */
+.gift-methods{
+  display:flex; flex-wrap:wrap; justify-content:center;
+  gap:.7rem;
+  margin-top:2rem;
+}
+.gift-pill{
+  display:inline-flex; align-items:center; gap:.4rem;
+  padding:.85rem 1.7rem;
+  border-radius:999px;
+  border:1.5px solid var(--sage);
+  background:transparent;
+  color:var(--forest);
+  font-family:var(--font-body);
+  font-size:.95rem; font-weight:700;
+  text-decoration:none;
+  cursor:pointer;
+  transition:background .25s, border-color .25s, color .25s, transform .2s var(--ease);
+}
+.gift-pill:hover{ background:rgba(167,168,128,.14); border-color:var(--olive); }
+.gift-pill:active{ transform:scale(.96); }
+/* явний, важко-пропустити стан після успішного копіювання:
+   сама кнопка змінюється, а не малопомітний рядок десь окремо */
+.gift-pill.is-copied{
+  background:var(--forest);
+  border-color:var(--forest);
+  color:var(--bone);
+}
+.gift-pill .gift-check{
+  width:15px; height:15px;
+  stroke:currentColor; fill:none;
+  stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round;
+  flex:none;
+}
+.gift-methods:empty{ display:none; }
+.gift-hint{
+  margin-top:1rem;
+  min-height:1.3em;
+  font-size:.85rem; font-weight:600;
+  color:var(--olive);
+  opacity:0;
+  transition:opacity .3s var(--ease);
+}
+.gift-hint.is-shown{ opacity:1; }
+.gift-thanks{
+  margin-top:2.4rem;
+  color:var(--olive);
+  font-size:1.02rem;
+  display:flex; align-items:center; justify-content:center; gap:.5rem;
+}
+.gift-heart{
+  width:16px; height:16px;
+  fill:var(--sage);
+  flex:none;
+}
+
+/* ============================================================
+   ФІНАЛ
+   ============================================================ */
+.finale{
+  position:relative;
+  min-height:92vh;
+  min-height:92svh;
+  display:flex; align-items:flex-end;
+  overflow:hidden;
+}
+.finale img{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover; object-position:center 62%;
+}
+.finale::after{
+  content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(54,58,34,.6) 0%, rgba(54,58,34,0) 55%);
+}
+.finale-content{
+  position:relative; z-index:2;
+  width:100%;
+  text-align:center;
+  color:var(--bone);
+  padding-bottom:calc(4rem + var(--safe-b));
+}
+.finale-content h2{
+  font-size:clamp(2.6rem, 11vw, 5rem);
+  margin-bottom:.6rem;
+  text-shadow:0 2px 30px rgba(54,58,34,.5);
+}
+.finale-content p{ color:var(--sand); font-weight:600; }
+
+footer{
+  background:var(--forest);
+  color:var(--sand);
+  text-align:center;
+  padding:2.4rem 0 calc(2.4rem + var(--safe-b));
+  font-size:.9rem;
+}
+footer .monogram{
+  font-family:var(--font-display);
+  font-size:1.5rem;
+  color:var(--bone);
+  margin-bottom:.4rem;
+}
+
+/* пелюстковий canvas */
+#petals{
+  position:fixed; inset:0; z-index:240;
+  pointer-events:none;
+  display:none;
+}
+
+
+.map-links{ display:flex; flex-wrap:wrap; justify-content:flex-end; gap:.4rem 1rem; margin-top:.35rem; }
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  .preloader{ display:none; }
+  .hero-names .inner{ transform:none; }
+  *,*::before,*::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+  }
+}
+</style>
+</head>
+
+<body class="is-locked">
+<audio id="bgMusic" preload="metadata" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+<a class="skip-link" href="#main">Перейти к содержанию</a>
+<div class="progress" aria-hidden="true"></div>
+
+<!-- ПРЕЛОАДЕР -->
+<div class="preloader" id="preloader" role="presentation">
+  <div class="pre-mono">E <span class="amp">&</span> A</div>
+  <div class="pre-line"><i></i></div>
+  <div class="pre-date">20 . 11 . 2026</div>
+</div>
+
+<!-- НАВИГАЦИЯ -->
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a class="nav-logo" href="#top" aria-label="Erik & Arina, в начало">E<span class="amp">&</span>A</a>
+    <ul class="nav-links">
+      <li><a href="#details" lang="en">Details</a></li>
+      <li><a href="#program" lang="en">Schedule</a></li>
+      <li><a href="#dresscode" lang="en">Dress Code</a></li>
+      <li><a href="#gallery" lang="en">Moments</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="nav-sound" id="soundToggle" type="button" aria-pressed="false" aria-label="Включить музыку">
+        <svg class="icon-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.4 8.6a5 5 0 0 1 0 6.8"/><path d="M19 6a8.5 8.5 0 0 1 0 12"/></svg>
+        <svg class="icon-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg>
+      </button>
+      <span class="nav-date" aria-hidden="true">20.11.2026</span>
+      <a class="nav-cta-mini" href="#rsvp">Подтвердить</a>
+    </div>
+  </div>
+</header>
+
+<!-- ПЛАВАЮЩАЯ ПАНЕЛЬ ДЕЙСТВИЙ -->
+<div class="actionbar" id="actionbar">
+  <a class="ab-primary" href="#rsvp">Подтвердить</a>
+  <a class="ab-icon" id="icsBtn" href="#" target="_blank" rel="noopener" aria-label="Добавить событие в календарь">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+  </a>
+  <a class="ab-icon" href="https://maps.google.com/?q=SOL+Church,+5948+Pecan+Ave,+Orangevale,+CA+95662" target="_blank" rel="noopener" aria-label="Показать место на карте">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+  </a>
+</div>
+
+<main id="main">
+
+<!-- ============ КИНОЛЕНТА ============ -->
+<div class="cinema" id="top">
+
+  <!-- Сцена 1: HERO (на телефоне вертикальное фото, на десктопе горизонтальное) -->
+  <section class="chapter hero" aria-label="Приглашение">
+    <div class="chapter-bg">
+      <picture>
+        <source media="(min-width: 900px)" srcset="img-web/img_1610.jpg" width="2100" height="1400">
+        <img src="img-web/img_1612.jpg" alt="Эрик и Арина держатся за руки в золотом поле на закате" width="1400" height="2100" fetchpriority="high">
+      </picture>
+    </div>
+    <div class="chapter-scrim"></div>
+    <div class="hero-top">
+      <span class="hero-pill">20 ноября 2026</span>
+      <h1 class="hero-names" aria-label="Erik & Arina" lang="en">
+        <span class="line"><span class="inner">Erik</span></span>
+        <span class="line" aria-hidden="true"><span class="inner amp">&</span></span>
+        <span class="line"><span class="inner">Arina</span></span>
+      </h1>
+    </div>
+  </section>
+
+  <!-- Сцена 2: ПРИГЛАШЕНИЕ + ТАЙМЕР -->
+  <section class="chapter chapter--dark" aria-label="Приглашение и обратный отсчёт">
+    <div class="container">
+      <p class="countdown-invite">Приглашаем вас разделить с нами самый важный день нашей жизни</p>
+      <p class="countdown-title">до дня, когда мы станем семьёй</p>
+      <div class="countdown-grid" role="timer" aria-live="off">
+        <div><span class="cd-value" id="cdDays">000</span><div class="cd-label" id="cdDaysLabel">дней</div></div>
+        <div><span class="cd-value" id="cdHours">00</span><div class="cd-label" id="cdHoursLabel">часов</div></div>
+        <div><span class="cd-value" id="cdMins">00</span><div class="cd-label" id="cdMinsLabel">минут</div></div>
+        <div><span class="cd-value" id="cdSecs">00</span><div class="cd-label" id="cdSecsLabel">секунд</div></div>
+      </div>
+      <p class="countdown-date">Пятница, 20.11.2026 · Orangevale, California</p>
+    </div>
+  </section>
+
+  <!-- Сцена 3 -->
+  <section class="chapter" aria-label="Our Story">
+    <div class="chapter-bg">
+      <img src="img-web/img_0471.jpg" alt="Эрик и Арина держатся за руки и смотрят друг на друга на фоне неба" width="1536" height="2048" loading="lazy" decoding="async" style="object-position:center 70%">
+    </div>
+    <div class="chapter-scrim"></div>
+    <div class="chapter-content">
+      <h2 lang="en">Our Story</h2>
+      <p>Два разных пути однажды сошлись в один. С тех пор самое важное мы делаем вместе.</p>
+    </div>
+  </section>
+
+  <!-- Сцена 4 -->
+  <section class="chapter" aria-label="Hand in Hand">
+    <div class="chapter-bg">
+      <img src="img-web/img_1597.jpg" alt="Эрик кружит Арину в танце на закате" width="1400" height="2100" loading="lazy" decoding="async" style="object-position:center 75%">
+    </div>
+    <div class="chapter-scrim"></div>
+    <div class="chapter-content">
+      <h2 lang="en">Hand in Hand</h2>
+      <p>Идти дальше рука об руку: и в солнечные дни, и в пасмурные.</p>
+    </div>
+  </section>
+
+  <!-- Сцена 5 -->
+  <section class="chapter" aria-label="Home">
+    <div class="chapter-bg">
+      <img src="img-web/img_1598.jpg" alt="Арина прижалась к Эрику посреди высокой золотой травы" width="1400" height="2100" loading="lazy" decoding="async" style="object-position:center 70%">
+    </div>
+    <div class="chapter-scrim"></div>
+    <div class="chapter-content">
+      <h2 lang="en">Home</h2>
+      <p>Это когда дом — не место, а человек рядом.</p>
+    </div>
+  </section>
+
+  <!-- Сцена 6: цитата -->
+  <section class="chapter quote-chapter" aria-label="Цитата">
+    <div class="chapter-bg">
+      <img src="img-web/img_1611.jpg" alt="Пара обнимается вдали посреди поля на закате" width="2100" height="1400" loading="lazy" decoding="async" style="object-position:48% center">
+    </div>
+    <div class="chapter-scrim" style="background:linear-gradient(rgba(54,58,34,.32),rgba(54,58,34,.55))"></div>
+    <div class="chapter-content chapter-content--center" style="text-align:center; color:var(--bone); padding-bottom:0; margin-bottom:auto; margin-top:auto;">
+      <h2 style="font-size:clamp(1.7rem,6.5vw,2.8rem); line-height:1.3; font-weight:500; text-shadow:0 2px 30px rgba(54,58,34,.6);">«Любовь всё покрывает, всему верит, всего надеется, всё переносит. Любовь никогда не перестаёт»</h2>
+      <p style="margin-top:1.2rem; letter-spacing:.25em; text-transform:uppercase; font-size:.78rem; font-weight:700; color:var(--sand);">1 Коринфянам 13:7–8</p>
+    </div>
+  </section>
+
+</div>
+
+<!-- ============ ДЕТАЛИ ============ -->
+<section class="section section--overlap" id="details">
+  <div class="container details-grid">
+    <div>
+      <h2 class="reveal" style="font-size:clamp(2.2rem,8vw,3.4rem); margin-bottom:1.6rem;" lang="en">When &amp; Where</h2>
+      <ul class="details-list reveal" style="--d:.1s">
+        <li><span class="k">Дата</span><span class="v">Пятница, 20 ноября 2026</span></li>
+        <!-- TODO: подтвердить время -->
+        <li><span class="k">Сбор гостей</span><span class="v">15:30</span></li>
+        <li><span class="k">Церемония</span><span class="v">16:00</span></li>
+        <li><span class="k">Место</span><span class="v">SOL Church<br>5948 Pecan Ave<br>Orangevale, CA 95662
+          <span class="map-links">
+            <a class="details-link" href="https://maps.google.com/?q=SOL+Church,+5948+Pecan+Ave,+Orangevale,+CA+95662" target="_blank" rel="noopener">Google Maps ↗</a>
+            <a class="details-link" href="https://maps.apple.com/?q=SOL+Church&amp;address=5948+Pecan+Ave,+Orangevale,+CA+95662" target="_blank" rel="noopener">Apple Maps ↗</a>
+          </span></span></li>
+      </ul>
+    </div>
+    <div class="details-media reveal" style="--d:.2s">
+      <img src="img-web/img_1603.jpg" alt="Эрик обнимает Арину на вершине холма" width="1400" height="2100" loading="lazy" decoding="async" style="object-position:center 30%">
+    </div>
+  </div>
+</section>
+
+<!-- ============ ПРОГРАММА ============ -->
+<!-- TODO: подтвердить время и пункты программы -->
+<section class="section" id="program" style="background:transparent; padding-inline:0;">
+  <div class="program" style="padding-top:4.5rem; padding-bottom:.4rem;">
+    <div class="section-head">
+      <h2 class="reveal" lang="en">The Wedding Day</h2>
+    </div>
+    <div class="program-track" aria-label="Расписание, листайте в сторону">
+      <article class="program-card has-photo reveal">
+        <div class="photo"><img src="img-web/img_0465.jpg" alt="" width="1536" height="2048" loading="lazy" decoding="async"></div>
+        <div class="t">15:30</div><h3>Сбор гостей</h3>
+        <p>Встречи, объятия и первые улыбки.</p>
+      </article>
+      <article class="program-card program-card--tint reveal" style="--d:.05s">
+        <div class="t">16:00</div><h3>Венчание</h3>
+        <p>Самые главные слова. Пожалуйста, не опаздывайте.</p>
+      </article>
+      <article class="program-card has-photo program-card--evening reveal" style="--d:.1s">
+        <div class="photo"><img src="img-web/img_1600.jpg" alt="" width="2100" height="1400" loading="lazy" decoding="async" style="object-position:22% center"></div>
+        <div class="t">17:30</div><h3>Праздничный ужин</h3>
+        <p>Поздравления, истории и вкусная еда.</p>
+      </article>
+      <article class="program-card program-card--deep reveal" style="--d:.15s">
+        <div class="t">21:30</div><h3>Торт и тёплый финал</h3>
+        <p>Сладкое завершение счастливого дня.</p>
+      </article>
+    </div>
+    <p class="program-hint" aria-hidden="true">листайте в сторону</p>
+  </div>
+</section>
+
+<!-- ============ ДРЕСС-КОД ============ -->
+<section class="section" id="dresscode">
+  <div class="container" style="text-align:center;">
+    <div class="section-head" style="margin-bottom:0;">
+      <h2 class="reveal" lang="en">Dress Code</h2>
+      <p class="lede reveal" style="--d:.1s">Нам будет очень приятно, если ваш образ поддержит палитру нашего дня: оттенки оливы, шалфея и слоновой кости.</p>
+    </div>
+    <div class="palette reveal" style="--d:.2s" role="img" aria-label="Палитра дресс-кода: ivory, bone, sage, olive, forest">
+      <div class="swatch"><i style="background:#F3EFE6"></i>Ivory</div>
+      <div class="swatch"><i style="background:#E2DAC6"></i>Bone</div>
+      <div class="swatch"><i style="background:#A7A880"></i>Sage</div>
+      <div class="swatch"><i style="background:#5F6438"></i>Olive</div>
+      <div class="swatch"><i style="background:#363A22"></i>Forest</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ГАЛЕРЕЯ: СВАЙП-КОЛОДА ============ -->
+<section class="section deck-section" id="gallery" style="padding-top:2rem;">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="reveal" lang="en">Moments</h2>
+    </div>
+  </div>
+  <div class="deck-wrap">
+    <div class="deck" id="deck" aria-label="Галерея фотографий, листайте карточки">
+      <figure class="deck-card"><img src="img-web/img_0473.jpg" alt="Эрик и Арина улыбаются друг другу, сидя на траве" width="1536" height="2048" loading="lazy" decoding="async"></figure>
+      <figure class="deck-card"><img src="img-web/img_0476.jpg" alt="Эрик и Арина под осенним деревом с жёлтыми листьями" width="1536" height="2048" loading="lazy" decoding="async"></figure>
+      <figure class="deck-card"><img src="img-web/img_0478.jpg" alt="Эрик и Арина прижались щекой к щеке и улыбаются" width="2048" height="1365" loading="lazy" decoding="async" style="object-position:55% center"></figure>
+      <figure class="deck-card"><img src="img-web/img_0001.jpg" alt="Эрик смеётся, глядя на Арину, на фоне холмов" width="2048" height="1365" loading="lazy" decoding="async" style="object-position:62% center"></figure>
+      <figure class="deck-card"><img src="img-web/img_1610.jpg" alt="Эрик и Арина стоят в поле высокой травы" width="2100" height="1400" loading="lazy" decoding="async" style="object-position:62% center"></figure>
+    </div>
+  </div>
+  <div class="deck-ui">
+    <button class="deck-btn" id="deckPrev" type="button" aria-label="Предыдущее фото">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+    <span class="deck-count" id="deckCount" aria-live="polite">1 / 5</span>
+    <button class="deck-btn" id="deckNext" type="button" aria-label="Следующее фото">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+  <p class="deck-hint" aria-hidden="true">листайте карточки</p>
+</section>
+
+<!-- ============ RSVP ============ -->
+<section class="section rsvp-section" id="rsvp">
+  <div class="container rsvp-grid">
+    <div class="rsvp-intro">
+      <span class="eyebrow reveal">RSVP</span>
+      <h2 class="reveal" style="--d:.08s">Будем рады видеть именно вас</h2>
+      <!-- TODO: подтвердить дедлайн -->
+      <p class="reveal" style="--d:.16s">Пожалуйста, подтвердите своё присутствие до 1 ноября 2026 года. Это поможет нам позаботиться о каждом госте.</p>
+    </div>
+
+    <div>
+      <form id="rsvpForm" novalidate>
+        <div class="field" id="fieldName">
+          <label for="guestName">Ваше имя и фамилия <span class="req" aria-hidden="true">*</span></label>
+          <input type="text" id="guestName" name="name" autocomplete="name" required>
+          <p class="field-error">Пожалуйста, укажите своё имя.</p>
+        </div>
+
+        <div class="field" id="fieldAttend">
+          <label id="attendLegend">Будете ли вы с нами? <span class="req" aria-hidden="true">*</span></label>
+          <div class="choice-row" role="radiogroup" aria-labelledby="attendLegend">
+            <label class="choice">
+              <input type="radio" name="attendance" value="yes" required>
+              <span>Да, приду</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="attendance" value="no">
+              <span>К сожалению, нет</span>
+            </label>
+          </div>
+          <p class="field-error">Выберите один из вариантов.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-duo">
+            <div>
+              <label for="guestAdults">Взрослых</label>
+              <select id="guestAdults" name="adults">
+                <option value="1" selected>1 взрослый</option>
+                <option value="2">2 взрослых</option>
+                <option value="3">3 взрослых</option>
+                <option value="4">4 взрослых</option>
+                <option value="5">5 взрослых</option>
+              </select>
+            </div>
+            <div>
+              <label for="guestKids">Детей</label>
+              <select id="guestKids" name="children">
+                <option value="0" selected>Без детей</option>
+                <option value="1">1 ребёнок</option>
+                <option value="2">2 ребёнка</option>
+                <option value="3">3 ребёнка</option>
+                <option value="4">4 ребёнка</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="guestWishes">Пожелание или комментарий</label>
+          <textarea id="guestWishes" name="wishes" placeholder="Несколько тёплых слов для нас, аллергии или особенности питания"></textarea>
+        </div>
+
+        <input class="honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <button class="rsvp-submit" id="rsvpSubmit" type="submit">Отправить ответ</button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="rsvp-success" id="rsvpSuccess" tabindex="-1">
+        <h3>Спасибо!</h3>
+        <p>Ваш ответ сохранён. Мы очень ждём встречи 20 ноября 2026 года.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ПОДАРОК ============ -->
+<section class="section gift-section" id="gift">
+  <div class="container" style="text-align:center;">
+    <div class="section-head" style="margin-bottom:0;">
+      <h2 class="reveal">На начало семейной жизни</h2>
+      <p class="lede reveal" style="--d:.1s">Самое ценное для нас — разделить этот особенный день вместе с вами. Но если у вас будет желание поздравить нас подарком, мы будем благодарны за вклад в начало нашей семейной жизни.</p>
+    </div>
+
+    <div class="gift-methods reveal" style="--d:.2s">
+      <button class="gift-pill" type="button" data-copy="+19415992516" data-display="+1 941 599 2516" aria-label="Скопировать номер Zelle">Zelle</button>
+      <!-- TODO: Cash App — розкоментувати, коли буде посилання
+      <a class="gift-pill" href="https://cash.app/$CASHTAG" target="_blank" rel="noopener">Cash App</a> -->
+    </div>
+    <p class="gift-hint" id="giftHint" aria-live="polite"></p>
+
+    <p class="gift-thanks reveal" style="--d:.25s">
+      Спасибо за вашу любовь, поддержку и тёплые пожелания
+      <svg class="gift-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.8-10-9.4C.5 7.8 2.3 4.5 5.7 4c2-.3 3.9.6 5 2.2C11.8 4.6 13.7 3.7 15.7 4c3.4.5 5.2 3.8 3.7 7.1-2.5 4.6-10 9.4-10 9.4z"/></svg>
+    </p>
+  </div>
+</section>
+
+<!-- ============ ФИНАЛ ============ -->
+<section class="finale" aria-label="See you soon">
+  <picture>
+    <source media="(min-width: 900px)" srcset="img-web/img_1600.jpg" width="2100" height="1400">
+    <img src="img-web/img_1605.jpg" alt="Эрик и Арина обнимаются на холме на фоне заката" width="1400" height="2100" loading="lazy" decoding="async">
+  </picture>
+  <div class="finale-content container">
+    <h2 class="reveal" lang="en">See You Soon!</h2>
+    <p class="reveal" style="--d:.1s">Erik &amp; Arina, 20 ноября 2026</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="monogram">E & A</div>
+  <p>Сделано с любовью · 2026</p>
+</footer>
+
+<canvas id="petals" aria-hidden="true"></canvas>
+
+<script>
+'use strict';
+
+/* ============================================================
+   КОНФИГУРАЦИЯ СОБЫТИЯ И ИНТЕГРАЦИЙ
+   ============================================================ */
+const EVENT = {
+  title: 'Свадьба Эрика и Арины',
+  start: '20261120T153000',            // местное время Калифорнии (America/Los_Angeles)
+  end:   '20261120T220000',
+  details: 'Сбор гостей в 15:30. Венчание в 16:00. Дресс-код: оттенки оливы и слоновой кости.',
+  locationName: 'SOL Church, 5948 Pecan Ave, Orangevale, CA 95662, United States'
+};
+
+/* Заполните ОДИН из вариантов, и форма будет отправлять ответы туда.
+   Пока всё пусто, ответы сохраняются только в браузере гостя (демо-режим)!
+   TODO перед рассылкой: вставить URL веб-приложения Google Apps Script (см. google-apps-script.js) */
+const RSVP_CONFIG = {
+  googleSheetsWebhook: '', // Apps Script Web App URL
+  airtable: { token: '', baseId: '', tableName: '' },
+  supabase: { url: '', anonKey: '', table: 'rsvp' }
+};
+
+const WEDDING_DATE = new Date('2026-11-20T16:00:00-08:00');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const vibrate = (ms) => { try{ navigator.vibrate?.(ms); }catch(e){} };
+
+/* ============================================================
+   ФОНОВАЯ МУЗЫКА (играет по кругу; кнопка в меню)
+   ============================================================ */
+const bgMusic = document.getElementById('bgMusic');
+const soundToggle = document.getElementById('soundToggle');
+bgMusic.volume = 0.35;
+
+function syncSoundUI(){
+  const playing = !bgMusic.paused;
+  soundToggle.classList.toggle('is-on', playing);
+  soundToggle.setAttribute('aria-pressed', String(playing));
+  soundToggle.setAttribute('aria-label', playing ? 'Выключить музыку' : 'Включить музыку');
+}
+bgMusic.addEventListener('play', syncSoundUI);
+bgMusic.addEventListener('pause', syncSoundUI);
+syncSoundUI();
+
+// Гість сам вимкнув музику — більше не вмикаємо її автоматично
+let userMuted = false;
+
+// Автозапуск: пробуємо одразу. Браузери (особливо Safari, Telegram, Instagram)
+// часто блокують звук без дії користувача, тоді вмикаємо на перший дотик,
+// клік або клавішу будь-де на сторінці.
+function tryAutoStart(e){
+  // натискання на саму кнопку звуку обробляє її власний обробник
+  if (e && e.target && e.target.closest && e.target.closest('#soundToggle')) return;
+  if (userMuted || document.hidden || !bgMusic.paused) return;
+  bgMusic.play().then(removeStartListeners).catch(() => {});
+}
+const startEvents = ['pointerdown', 'touchend', 'click', 'keydown'];
+function removeStartListeners(){
+  startEvents.forEach(ev => document.removeEventListener(ev, tryAutoStart, true));
+}
+startEvents.forEach(ev => document.addEventListener(ev, tryAutoStart, { capture:true, passive:true }));
+tryAutoStart();
+
+// Згорнули вкладку / заблокували телефон / перейшли в інший застосунок — пауза.
+// Повернулися — музика продовжує грати (якщо гість її не вимикав).
+let pausedByHide = false;
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden){
+    if (!bgMusic.paused){ bgMusic.pause(); pausedByHide = true; }
+  } else if (pausedByHide && !userMuted){
+    pausedByHide = false;
+    bgMusic.play().catch(() => {});
+  }
+});
+window.addEventListener('pagehide', () => bgMusic.pause());
+
+soundToggle.addEventListener('click', (e) => {
+  e.stopPropagation();
+  if (bgMusic.paused){
+    userMuted = false;
+    bgMusic.play().catch(() => {});
+  } else {
+    userMuted = true;
+    bgMusic.pause();
+  }
+});
+
+/* ============================================================
+   ПРЕЛОАДЕР
+   ============================================================ */
+const preloader = document.getElementById('preloader');
+
+function finishPreloader(){
+  tryAutoStart();
+  if (document.body.classList.contains('is-ready')) return;
+  document.body.classList.add('is-ready');
+  document.body.classList.remove('is-locked');
+  preloader.classList.add('is-done');
+  preloader.addEventListener('transitionend', () => preloader.remove(), { once:true });
+}
+
+if (reduceMotion){
+  document.body.classList.add('is-ready');
+  document.body.classList.remove('is-locked');
+  preloader.remove();
+} else {
+  setTimeout(finishPreloader, 1700);
+  preloader.addEventListener('click', finishPreloader);
+}
+
+/* ============================================================
+   ЗВОРОТНИЙ ВІДЛІК: плавна «прокрутка» цифр
+   ============================================================ */
+function ruPlural(n, one, few, many){
+  const m10 = n % 10, m100 = n % 100;
+  if (m10 === 1 && m100 !== 11) return one;
+  if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return few;
+  return many;
+}
+
+let cdOnScreen = false;
+
+function rollTo(el, val){
+  if (el.dataset.v === val) return;
+  el.dataset.v = val;
+  // анімуємо «прокрутку» цифр лише коли таймер видно на екрані
+  if (reduceMotion || !cdOnScreen){ el.textContent = val; return; }
+  const out = el.animate(
+    [{ transform:'translateY(0)', opacity:1 }, { transform:'translateY(-14px)', opacity:0 }],
+    { duration:160, easing:'ease-in' }
+  );
+  out.onfinish = () => {
+    el.textContent = val;
+    el.animate(
+      [{ transform:'translateY(14px)', opacity:0 }, { transform:'translateY(0)', opacity:1 }],
+      { duration:220, easing:'ease-out' }
+    );
+  };
+}
+
+const cdEls = {
+  d:[document.getElementById('cdDays'),  document.getElementById('cdDaysLabel')],
+  h:[document.getElementById('cdHours'), document.getElementById('cdHoursLabel')],
+  m:[document.getElementById('cdMins'),  document.getElementById('cdMinsLabel')],
+  s:[document.getElementById('cdSecs'),  document.getElementById('cdSecsLabel')]
+};
+
+function tick(){
+  const diff = WEDDING_DATE - new Date();
+  if (diff <= 0){
+    rollTo(cdEls.d[0], '0'); rollTo(cdEls.h[0], '00');
+    rollTo(cdEls.m[0], '00'); rollTo(cdEls.s[0], '00');
+    document.querySelector('.countdown-title').textContent = 'Сегодня наш день!';
+    clearInterval(cdTimer);
+    return;
+  }
+  const d = Math.floor(diff / 864e5);
+  const h = Math.floor(diff % 864e5 / 36e5);
+  const m = Math.floor(diff % 36e5 / 6e4);
+  const s = Math.floor(diff % 6e4 / 1e3);
+
+  rollTo(cdEls.d[0], String(d));
+  rollTo(cdEls.h[0], String(h).padStart(2,'0'));
+  rollTo(cdEls.m[0], String(m).padStart(2,'0'));
+  rollTo(cdEls.s[0], String(s).padStart(2,'0'));
+
+  cdEls.d[1].textContent = ruPlural(d,'день','дня','дней');
+  cdEls.h[1].textContent = ruPlural(h,'час','часа','часов');
+  cdEls.m[1].textContent = ruPlural(m,'минута','минуты','минут');
+  cdEls.s[1].textContent = ruPlural(s,'секунда','секунды','секунд');
+}
+new IntersectionObserver(([e]) => { cdOnScreen = e.isIntersecting; }, { threshold:.1 })
+  .observe(document.querySelector('.chapter--dark'));
+
+let cdTimer;
+tick();
+cdTimer = setInterval(tick, 1000);
+
+/* ============================================================
+   REVEAL + НАВБАР (IntersectionObserver, без scroll-подій)
+   ============================================================ */
+if (!reduceMotion){
+  const obs = new IntersectionObserver((entries) => {
+    for (const e of entries){
+      if (e.isIntersecting){ e.target.classList.add('is-visible'); obs.unobserve(e.target); }
+    }
+  }, { threshold:.15, rootMargin:'0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+} else {
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+}
+
+/* ============================================================
+   ЄДИНИЙ SCROLL-ОБРОБНИК (passive + rAF)
+   Керує повзунком прогресу, склом навбару, датою в меню та
+   панеллю дій. Один обробник з батчингом через requestAnimationFrame
+   поводиться однаково в Safari, Chrome та вбудованому браузері Telegram,
+   на відміну від CSS scroll-timeline та кількох IntersectionObserver,
+   які в цих браузерах спрацьовували по-різному.
+   ============================================================ */
+const nav = document.getElementById('nav');
+const progressBar = document.querySelector('.progress');
+const actionbar = document.getElementById('actionbar');
+const storyScene = document.querySelectorAll('.chapter')[2]; // «Our Story»
+const detailsSection = document.getElementById('details');
+const rsvpSection = document.getElementById('rsvp');
+
+let ticking = false;
+function onScroll(){
+  if (ticking) return;
+  ticking = true;
+  requestAnimationFrame(() => {
+    const doc = document.documentElement;
+    const st = window.pageYOffset || doc.scrollTop || 0;
+    const vh = window.innerHeight;
+    const max = (doc.scrollHeight - vh) || 1;
+
+    // повзунок прогресу
+    const p = Math.min(1, Math.max(0, st / max));
+    progressBar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+
+    // скло навбару після першого екрана
+    nav.classList.toggle('is-scrolled', st > vh * 0.55);
+
+    // дата в меню з'являється з сегмента «Our Story»
+    document.body.classList.toggle('show-nav-date',
+      storyScene.getBoundingClientRect().top < vh * 0.5);
+
+    // панель дій: від секції «Коли та де», ховається на RSVP і далі
+    const reachedDetails = detailsSection.getBoundingClientRect().top < vh * 0.55;
+    const reachedRsvp = rsvpSection.getBoundingClientRect().top < vh * 0.6;
+    actionbar.classList.toggle('is-shown', reachedDetails && !reachedRsvp);
+
+    ticking = false;
+  });
+}
+window.addEventListener('scroll', onScroll, { passive:true });
+window.addEventListener('resize', onScroll, { passive:true });
+if (window.visualViewport){
+  visualViewport.addEventListener('resize', onScroll, { passive:true });
+}
+onScroll();
+
+/* ============================================================
+   СВАЙП-КОЛОДА (адаптовано з 21st.dev Image Swiper під vanilla)
+   ============================================================ */
+const deck = document.getElementById('deck');
+const deckCount = document.getElementById('deckCount');
+let cards = [...deck.querySelectorAll('.deck-card')];
+const totalCards = cards.length;
+let shownIndex = 0;
+let animLock = false;
+
+function layoutDeck(){
+  cards.forEach((c, i) => {
+    c.style.setProperty('--i', Math.min(i, 3));
+    c.dataset.hidden = i > 3 ? 'true' : 'false';
+    c.classList.toggle('is-top', i === 0);
+  });
+  deckCount.textContent = (shownIndex + 1) + ' / ' + totalCards;
+}
+layoutDeck();
+
+function advanceDeck(direction, fromDx){
+  if (animLock) return;
+  animLock = true;
+  const top = cards[0];
+  // верхня картка вилітає; решта одразу підіймаються (плавно, свій transition)
+  top.style.transition = 'transform .32s cubic-bezier(.5,0,.75,0), opacity .32s ease';
+  top.style.setProperty('--swipe-x', (direction > 0 ? 125 : -125) + 'vw');
+  top.style.setProperty('--swipe-rot', (direction > 0 ? 16 : -16) + 'deg');
+  top.style.opacity = '0';
+  vibrate(6);
+
+  // одразу переставляємо порядок, щоб наступна картка стала активною й підвелась
+  cards.push(cards.shift());
+  shownIndex = (shownIndex + 1) % totalCards;
+  layoutDeck();
+
+  // коротка пауза перед наступним свайпом — можна гортати швидко
+  setTimeout(() => { animLock = false; }, 170);
+
+  // прибираємо картку, що вилетіла, у стан спокою в кінці колоди
+  setTimeout(() => {
+    top.style.transition = 'none';
+    top.style.removeProperty('--swipe-x');
+    top.style.removeProperty('--swipe-rot');
+    top.style.opacity = '';
+    requestAnimationFrame(() => { top.style.transition = ''; });
+  }, 340);
+}
+
+let dragging = false, startX = 0, startY = 0, dx = 0, locked = false;
+
+deck.addEventListener('pointerdown', (e) => {
+  if (animLock) return;
+  dragging = true; locked = false;
+  startX = e.clientX; startY = e.clientY; dx = 0;
+  cards[0].style.transition = 'none';
+});
+deck.addEventListener('pointermove', (e) => {
+  if (!dragging) return;
+  const mx = e.clientX - startX;
+  const my = e.clientY - startY;
+  // якщо жест радше вертикальний — віддаємо його сторінці (звичайний скрол)
+  if (!locked){
+    if (Math.abs(my) > Math.abs(mx) && Math.abs(my) > 10){ dragging = false; return; }
+    if (Math.abs(mx) > 6){ locked = true; deck.setPointerCapture(e.pointerId); }
+  }
+  dx = mx;
+  const top = cards[0];
+  top.style.setProperty('--swipe-x', dx + 'px');
+  top.style.setProperty('--swipe-rot', (dx * .05) + 'deg');
+});
+function endDrag(){
+  if (!dragging) return;
+  dragging = false;
+  const top = cards[0];
+  if (Math.abs(dx) > 55){
+    advanceDeck(Math.sign(dx), dx);
+  } else {
+    top.style.transition = 'transform .3s var(--ease)';
+    top.style.setProperty('--swipe-x', '0px');
+    top.style.setProperty('--swipe-rot', '0deg');
+  }
+}
+deck.addEventListener('pointerup', endDrag);
+deck.addEventListener('pointercancel', endDrag);
+
+document.getElementById('deckNext').addEventListener('click', () => advanceDeck(1));
+document.getElementById('deckPrev').addEventListener('click', () => advanceDeck(-1));
+
+/* ============================================================
+   ДОДАТИ В КАЛЕНДАР (Google Calendar)
+   Це справжнє посилання <a href>, а не window.open — тому надійно
+   відкривається у вбудованих браузерах (Telegram, Instagram) та на iPhone.
+   ============================================================ */
+const calBtn = document.getElementById('icsBtn');
+calBtn.href = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
+  + '&text=' + encodeURIComponent(EVENT.title)
+  + '&dates=' + EVENT.start + '/' + EVENT.end
+  + '&ctz=America/Los_Angeles'
+  + '&details=' + encodeURIComponent(EVENT.details)
+  + '&location=' + encodeURIComponent(EVENT.locationName);
+calBtn.addEventListener('click', () => vibrate(6));
+
+/* ============================================================
+   ПЕЛЮСТКИ НА УСПІШНИЙ RSVP (canvas, 3 секунди)
+   ============================================================ */
+function petalBurst(){
+  if (reduceMotion) return;
+  const canvas = document.getElementById('petals');
+  const ctx = canvas.getContext('2d');
+  canvas.width = innerWidth * devicePixelRatio;
+  canvas.height = innerHeight * devicePixelRatio;
+  ctx.scale(devicePixelRatio, devicePixelRatio);
+  canvas.style.display = 'block';
+
+  const colors = ['#E2DAC6', '#A7A880', '#F3EFE6', '#5F6438'];
+  const petals = Array.from({ length: 46 }, () => ({
+    x: Math.random() * innerWidth,
+    y: -30 - Math.random() * innerHeight * .4,
+    r: 5 + Math.random() * 7,
+    vy: 2 + Math.random() * 2.6,
+    sway: Math.random() * 2 * Math.PI,
+    swaySpeed: .02 + Math.random() * .04,
+    rot: Math.random() * Math.PI,
+    vr: (Math.random() - .5) * .08,
+    color: colors[Math.floor(Math.random() * colors.length)]
+  }));
+
+  const t0 = performance.now();
+  function frame(t){
+    const elapsed = t - t0;
+    ctx.clearRect(0, 0, innerWidth, innerHeight);
+    for (const p of petals){
+      p.y += p.vy;
+      p.sway += p.swaySpeed;
+      p.x += Math.sin(p.sway) * 1.4;
+      p.rot += p.vr;
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.globalAlpha = Math.min(1, Math.max(0, 1.15 - elapsed / 3400));
+      ctx.fillStyle = p.color;
+      ctx.beginPath();
+      ctx.ellipse(0, 0, p.r, p.r * .62, 0, 0, 2 * Math.PI);
+      ctx.fill();
+      ctx.restore();
+    }
+    if (elapsed < 3400){ requestAnimationFrame(frame); }
+    else { canvas.style.display = 'none'; }
+  }
+  requestAnimationFrame(frame);
+}
+
+/* ============================================================
+   ФОРМА RSVP
+   ============================================================ */
+const form = document.getElementById('rsvpForm');
+const submitBtn = document.getElementById('rsvpSubmit');
+const statusEl = document.getElementById('formStatus');
+const successEl = document.getElementById('rsvpSuccess');
+
+async function sendRSVP(payload){
+  const c = RSVP_CONFIG;
+
+  if (c.googleSheetsWebhook){
+    await fetch(c.googleSheetsWebhook, {
+      method:'POST',
+      headers:{ 'Content-Type':'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload)
+    });
+    return;
+  }
+  if (c.airtable.token && c.airtable.baseId){
+    const res = await fetch(
+      `https://api.airtable.com/v0/${c.airtable.baseId}/${encodeURIComponent(c.airtable.tableName)}`,
+      {
+        method:'POST',
+        headers:{ 'Authorization':'Bearer ' + c.airtable.token, 'Content-Type':'application/json' },
+        body: JSON.stringify({ fields: payload })
+      }
+    );
+    if (!res.ok) throw new Error('Airtable: ' + res.status);
+    return;
+  }
+  if (c.supabase.url && c.supabase.anonKey){
+    const res = await fetch(`${c.supabase.url}/rest/v1/${c.supabase.table}`, {
+      method:'POST',
+      headers:{
+        'apikey': c.supabase.anonKey,
+        'Authorization':'Bearer ' + c.supabase.anonKey,
+        'Content-Type':'application/json',
+        'Prefer':'return=minimal'
+      },
+      body: JSON.stringify(payload)
+    });
+    if (!res.ok) throw new Error('Supabase: ' + res.status);
+    return;
+  }
+  // демо-режим
+  const saved = JSON.parse(localStorage.getItem('rsvp_responses') || '[]');
+  saved.push(payload);
+  localStorage.setItem('rsvp_responses', JSON.stringify(saved));
+  await new Promise(r => setTimeout(r, 650));
+}
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  if (form.website.value) return;
+
+  const nameField = document.getElementById('fieldName');
+  const attendField = document.getElementById('fieldAttend');
+  const name = form.name.value.trim();
+  const attendance = form.querySelector('input[name="attendance"]:checked');
+
+  nameField.classList.toggle('has-error', !name);
+  attendField.classList.toggle('has-error', !attendance);
+  if (!name || !attendance){
+    (name ? attendField : nameField).querySelector('input').focus();
+    return;
+  }
+
+  const payload = {
+    name,
+    attendance: attendance.value === 'yes' ? 'Придёт' : 'Не сможет',
+    adults: form.adults.value,
+    children: form.children.value,
+    wishes: form.wishes.value.trim(),
+    submitted_at: new Date().toISOString()
+  };
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Отправляем…';
+  statusEl.className = 'form-status';
+  statusEl.textContent = '';
+
+  try{
+    await sendRSVP(payload);
+    form.hidden = true;
+    successEl.classList.add('is-shown');
+    if (payload.attendance === 'Не сможет'){
+      successEl.querySelector('p').textContent =
+        'Нам жаль, что вы не сможете быть с нами. Спасибо, что предупредили, обнимаем вас!';
+    } else {
+      petalBurst();
+    }
+    vibrate([10, 40, 18]);
+    successEl.focus();
+  } catch(err){
+    console.error(err);
+    statusEl.className = 'form-status err';
+    statusEl.textContent = 'Не удалось отправить. Проверьте интернет и попробуйте ещё раз.';
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Отправить ответ';
+  }
+});
+
+/* ============================================================
+   ПОДАРУНОК: копіювання Zelle в буфер обміну
+   (Cash App має пряме посилання, тому просто <a>)
+
+   navigator.clipboard.writeText мовчки не працює в частині мобільних
+   браузерів і вбудованому браузері Telegram (потрібен secure context,
+   якого там іноді немає), тому є легасі-фолбек через приховане поле.
+   Підтвердження показуємо прямо на кнопці (галочка + «Copied»),
+   а не окремим рядком під нею, який на телефоні легко не помітити.
+   ============================================================ */
+async function copyText(value){
+  if (navigator.clipboard && window.isSecureContext){
+    try{ await navigator.clipboard.writeText(value); return true; }
+    catch(e){ /* падаємо до легасі-способу нижче */ }
+  }
+  try{
+    const ta = document.createElement('textarea');
+    ta.value = value;
+    ta.style.position = 'fixed';
+    ta.style.left = '-9999px';
+    ta.setAttribute('readonly', '');
+    document.body.appendChild(ta);
+    ta.select();
+    ta.setSelectionRange(0, value.length);
+    const ok = document.execCommand('copy');
+    document.body.removeChild(ta);
+    return ok;
+  } catch(e){
+    return false;
+  }
+}
+
+const giftHint = document.getElementById('giftHint');
+let giftHintTimer = null;
+
+document.querySelectorAll('.gift-pill[data-copy]').forEach((btn) => {
+  const originalLabel = btn.textContent.trim();
+  let resetTimer = null;
+
+  btn.addEventListener('click', async () => {
+    const value = btn.dataset.copy;
+    const shown = btn.dataset.display || value;
+    const ok = await copyText(value);
+
+    clearTimeout(resetTimer);
+    clearTimeout(giftHintTimer);
+
+    if (ok){
+      btn.classList.add('is-copied');
+      btn.innerHTML = '<svg class="gift-check" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Скопировано';
+      giftHint.textContent = 'Скопировано: ' + shown;
+      giftHint.classList.add('is-shown');
+      giftHintTimer = setTimeout(() => giftHint.classList.remove('is-shown'), 2600);
+    } else {
+      giftHint.textContent = 'Не удалось скопировать. Номер: ' + shown;
+      giftHint.classList.add('is-shown');
+      giftHintTimer = setTimeout(() => giftHint.classList.remove('is-shown'), 4000);
+    }
+    vibrate(ok ? [8, 30, 8] : 10);
+
+    resetTimer = setTimeout(() => {
+      btn.classList.remove('is-copied');
+      btn.textContent = originalLabel;
+    }, 2200);
+  });
+});
+</script>
+</body>
+</html>
