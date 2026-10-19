@@ -512,6 +512,11 @@ body.is-ready .hero-names .line:nth-child(3) .inner{ animation-delay:.22s; }
   letter-spacing:.35em; text-indent:.35em;
   color:var(--sand);
 }
+@media (max-width:699px){
+  .countdown-date span{ display:block; }
+  .countdown-date .cd-sep{ display:none; }
+  .countdown-date span + span + span{ margin-top:.5rem; }
+}
 
 /* ============================================================
    ЗВИЧАЙНІ СЕКЦІЇ
@@ -906,15 +911,19 @@ body.is-ready .hero-names .line:nth-child(3) .inner{ animation-delay:.22s; }
 }
 .gift-hint.is-shown{ opacity:1; }
 .gift-thanks{
-  margin-top:2.4rem;
+  margin:2.4rem auto 0;
+  max-width:30ch;
   color:var(--olive);
   font-size:1.02rem;
-  display:flex; align-items:center; justify-content:center; gap:.5rem;
+  text-wrap:balance;
 }
+/* сердечко йде одразу за останнім словом, а не відривається вбік */
 .gift-heart{
-  width:16px; height:16px;
+  display:inline-block;
+  width:15px; height:15px;
+  margin-left:.3rem;
+  vertical-align:-2px;
   fill:var(--sage);
-  flex:none;
 }
 
 /* ============================================================
@@ -1072,7 +1081,7 @@ footer .monogram{
         <div><span class="cd-value" id="cdMins">00</span><div class="cd-label" id="cdMinsLabel">минут</div></div>
         <div><span class="cd-value" id="cdSecs">00</span><div class="cd-label" id="cdSecsLabel">секунд</div></div>
       </div>
-      <p class="countdown-date">Пятница, 20.11.2026 · Orangevale, California</p>
+      <p class="countdown-date"><span>Пятница, 20.11.2026</span><span class="cd-sep" aria-hidden="true"> · </span><span>Orangevale, California</span></p>
     </div>
   </section>
 
