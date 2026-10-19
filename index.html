@@ -320,6 +320,8 @@ body.show-nav-date .nav-date{ opacity:1; transform:none; }
      ховається/з'являється адресний рядок, тому сцени не смикаються */
   height:100vh;
   height:100svh;
+  /* --app-h: стабільна висота екрана з JS (див. скрипт одразу після <body>) */
+  height:var(--app-h, 100svh);
   overflow:hidden;
   display:flex; flex-direction:column; justify-content:flex-start;
 }
@@ -358,7 +360,7 @@ body.show-nav-date .nav-date{ opacity:1; transform:none; }
 
 /* На мобільному цитату трохи піднімаємо над центром екрана */
 @media (max-width:899px){
-  .quote-chapter .chapter-content--center{ transform:translateY(-9svh); }
+  .quote-chapter .chapter-content--center{ transform:translateY(calc(var(--app-h, 100svh) * -.09)); }
 }
 .chapter-content p{
   max-width:46ch;
@@ -398,7 +400,7 @@ body.show-nav-date .nav-date{ opacity:1; transform:none; }
   color:var(--forest);
   font-size:clamp(3.2rem, 15vw, 7rem);
   line-height:1.02;
-  margin-top:clamp(1.2rem, 4vh, 2.4rem);
+  margin-top:clamp(1.2rem, calc(var(--app-h, 100vh) * .04), 2.4rem);
 }
 .hero-names .line{ display:block; overflow:hidden; padding-bottom:.06em; }
 .hero-names .inner{ display:block; transform:translateY(112%); }
@@ -682,7 +684,7 @@ body.is-ready .hero-names .line:nth-child(3) .inner{ animation-delay:.22s; }
 .deck-section{ overflow:hidden; }
 .deck-wrap{
   position:relative;
-  height:min(66vh, 560px);
+  height:min(calc(var(--app-h, 100vh) * .66), 560px);
   display:grid; place-items:center;
 }
 .deck{
@@ -937,6 +939,7 @@ body.is-ready .hero-names .line:nth-child(3) .inner{ animation-delay:.22s; }
   position:relative;
   min-height:92vh;
   min-height:92svh;
+  min-height:calc(var(--app-h, 100svh) * .92);
   display:flex; align-items:flex-end;
   overflow:hidden;
 }
@@ -1005,6 +1008,23 @@ footer .monogram{
 </head>
 
 <body class="is-locked">
+<script>
+/* СТАБІЛЬНА ВИСОТА ЕКРАНА
+   Вбудований браузер Telegram (і Instagram) на iPhone змінює реальну висоту
+   сторінки, коли його нижня панель виїжджає/ховається під час гортання.
+   Тоді vh/svh/lvh перераховуються, і сцени-блоки «скачуть».
+   Тому висоту запам'ятовуємо в пікселях і лише збільшуємо її (як lvh);
+   скидаємо тільки коли змінюється ширина (поворот телефона). */
+(function(){
+  var root = document.documentElement, w = innerWidth, h = innerHeight;
+  function apply(){ root.style.setProperty('--app-h', h + 'px'); }
+  apply();
+  addEventListener('resize', function(){
+    if (innerWidth !== w){ w = innerWidth; h = innerHeight; apply(); }
+    else if (innerHeight > h){ h = innerHeight; apply(); }
+  });
+})();
+</script>
 <audio id="bgMusic" preload="metadata" loop>
   <source src="music.mp3" type="audio/mpeg">
 </audio>
