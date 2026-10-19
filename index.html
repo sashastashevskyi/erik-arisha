@@ -356,6 +356,10 @@ body.show-nav-date .nav-date{ opacity:1; transform:none; }
   margin-bottom:.7rem;
 }
 
+/* На мобільному цитату трохи піднімаємо над центром екрана */
+@media (max-width:899px){
+  .quote-chapter .chapter-content--center{ transform:translateY(-9svh); }
+}
 .chapter-content p{
   max-width:46ch;
   color:var(--olive);
@@ -1206,6 +1210,34 @@ footer .monogram{
   </div>
 </section>
 
+<!-- ============ ГАЛЕРЕЯ: СВАЙП-КОЛОДА ============ -->
+<section class="section deck-section" id="gallery" style="padding-top:2rem;">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="reveal" lang="en">Moments</h2>
+    </div>
+  </div>
+  <div class="deck-wrap">
+    <div class="deck" id="deck" aria-label="Галерея фотографий, листайте карточки">
+      <figure class="deck-card"><img src="img-web/img_0473.jpg" alt="Эрик и Арина улыбаются друг другу, сидя на траве" width="1536" height="2048" loading="lazy" decoding="async"></figure>
+      <figure class="deck-card"><img src="img-web/img_0476.jpg" alt="Эрик и Арина под осенним деревом с жёлтыми листьями" width="1536" height="2048" loading="lazy" decoding="async"></figure>
+      <figure class="deck-card"><img src="img-web/img_0478.jpg" alt="Эрик и Арина прижались щекой к щеке и улыбаются" width="2048" height="1365" loading="lazy" decoding="async" style="object-position:55% center"></figure>
+      <figure class="deck-card"><img src="img-web/img_0001.jpg" alt="Эрик смеётся, глядя на Арину, на фоне холмов" width="2048" height="1365" loading="lazy" decoding="async" style="object-position:62% center"></figure>
+      <figure class="deck-card"><img src="img-web/img_1610.jpg" alt="Эрик и Арина стоят в поле высокой травы" width="2100" height="1400" loading="lazy" decoding="async" style="object-position:62% center"></figure>
+    </div>
+  </div>
+  <div class="deck-ui">
+    <button class="deck-btn" id="deckPrev" type="button" aria-label="Предыдущее фото">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+    <span class="deck-count" id="deckCount" aria-live="polite">1 / 5</span>
+    <button class="deck-btn" id="deckNext" type="button" aria-label="Следующее фото">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+  <p class="deck-hint" aria-hidden="true">листайте карточки</p>
+</section>
+
 <!-- ============ RSVP ============ -->
 <section class="section rsvp-section" id="rsvp">
   <div class="container rsvp-grid">
@@ -1303,34 +1335,6 @@ footer .monogram{
       <svg class="gift-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.8-10-9.4C.5 7.8 2.3 4.5 5.7 4c2-.3 3.9.6 5 2.2C11.8 4.6 13.7 3.7 15.7 4c3.4.5 5.2 3.8 3.7 7.1-2.5 4.6-10 9.4-10 9.4z"/></svg>
     </p>
   </div>
-</section>
-
-<!-- ============ ГАЛЕРЕЯ: СВАЙП-КОЛОДА ============ -->
-<section class="section deck-section" id="gallery" style="padding-top:2rem;">
-  <div class="container">
-    <div class="section-head">
-      <h2 class="reveal" lang="en">Moments</h2>
-    </div>
-  </div>
-  <div class="deck-wrap">
-    <div class="deck" id="deck" aria-label="Галерея фотографий, листайте карточки">
-      <figure class="deck-card"><img src="img-web/img_0473.jpg" alt="Эрик и Арина улыбаются друг другу, сидя на траве" width="1536" height="2048" loading="lazy" decoding="async"></figure>
-      <figure class="deck-card"><img src="img-web/img_0476.jpg" alt="Эрик и Арина под осенним деревом с жёлтыми листьями" width="1536" height="2048" loading="lazy" decoding="async"></figure>
-      <figure class="deck-card"><img src="img-web/img_0478.jpg" alt="Эрик и Арина прижались щекой к щеке и улыбаются" width="2048" height="1365" loading="lazy" decoding="async" style="object-position:55% center"></figure>
-      <figure class="deck-card"><img src="img-web/img_0001.jpg" alt="Эрик смеётся, глядя на Арину, на фоне холмов" width="2048" height="1365" loading="lazy" decoding="async" style="object-position:62% center"></figure>
-      <figure class="deck-card"><img src="img-web/img_1610.jpg" alt="Эрик и Арина стоят в поле высокой травы" width="2100" height="1400" loading="lazy" decoding="async" style="object-position:62% center"></figure>
-    </div>
-  </div>
-  <div class="deck-ui">
-    <button class="deck-btn" id="deckPrev" type="button" aria-label="Предыдущее фото">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
-    </button>
-    <span class="deck-count" id="deckCount" aria-live="polite">1 / 5</span>
-    <button class="deck-btn" id="deckNext" type="button" aria-label="Следующее фото">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
-    </button>
-  </div>
-  <p class="deck-hint" aria-hidden="true">листайте карточки</p>
 </section>
 
 <!-- ============ ФИНАЛ ============ -->
