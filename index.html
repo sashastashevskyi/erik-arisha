@@ -1051,6 +1051,30 @@ footer{
   padding:2.4rem 0 calc(2.4rem + var(--safe-b));
   font-size:.9rem;
 }
+.footer-credit{
+  opacity:.5;
+  font-size:.82rem;
+  transition:opacity .3s;
+}
+.footer-credit:hover, .footer-credit:focus-within{ opacity:.9; }
+.footer-heart{
+  display:inline-block;
+  width:11px; height:11px;
+  margin-left:.15rem;
+  vertical-align:-1px;
+  fill:currentColor;
+}
+/* підпис автора: частина рядка футера, в тон тексту; підкреслення лише при наведенні */
+.credit{
+  color:inherit;
+  text-decoration:none;
+  border-bottom:1px solid rgba(226,218,198,.25);
+  transition:color .25s, border-color .25s;
+}
+.credit:hover, .credit:focus-visible{
+  color:var(--bone);
+  border-color:var(--bone);
+}
 footer .monogram{
   font-family:var(--font-display);
   font-size:1.5rem;
@@ -1470,7 +1494,7 @@ footer .monogram{
 
 <footer>
   <div class="monogram">E & A</div>
-  <p>Сделано с любовью · 2026</p>
+  <p class="footer-credit" lang="en">Made by <a class="credit" href="https://t.me/oleksandr_stashevskyi" target="_blank" rel="noopener" aria-label="Автор сайта в Telegram: @oleksandr_stashevskyi">@oleksandr_stashevskyi</a> <svg class="footer-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.8-10-9.4C.5 7.8 2.3 4.5 5.7 4c2-.3 3.9.6 5 2.2C11.8 4.6 13.7 3.7 15.7 4c3.4.5 5.2 3.8 3.7 7.1-2.5 4.6-10 9.4-10 9.4z"/></svg></p>
 </footer>
 
 <canvas id="petals" aria-hidden="true"></canvas>
