@@ -595,6 +595,54 @@ body.is-ready .hero-names .line:nth-child(3) .inner{ animation-delay:.22s; }
   object-fit:cover;
 }
 
+/* ТРАНСЛЯЦІЯ */
+.live-section{ padding-top:1rem; }
+.live-card{
+  max-width:640px;
+  margin:0 auto;
+  padding:2.4rem 1.6rem;
+  border-radius:var(--radius);
+  border:1.5px solid rgba(54,58,34,.14);
+  text-align:center;
+}
+.live-badge{
+  display:inline-flex; align-items:center; gap:.45rem;
+  padding:.35rem .9rem;
+  border-radius:999px;
+  background:var(--sand);
+  color:var(--olive);
+  font-size:.75rem; font-weight:700;
+  letter-spacing:.24em; text-transform:uppercase;
+  margin-bottom:1.1rem;
+}
+.live-badge i{
+  width:7px; height:7px; border-radius:50%;
+  background:var(--brown);
+  animation:livePulse 1.8s ease-in-out infinite;
+}
+@keyframes livePulse{ 50%{ opacity:.25; } }
+.live-card h2{ font-size:clamp(2.2rem, 8vw, 3.2rem); margin-bottom:.8rem; }
+.live-text{ color:var(--olive); max-width:40ch; margin:0 auto; }
+.live-soon{
+  margin:1.4rem auto 0;
+  max-width:34ch;
+  font-size:.92rem; font-weight:600;
+  color:var(--brown);
+}
+.live-btn{
+  display:inline-block;
+  margin-top:1.6rem;
+  padding:.95rem 2rem;
+  border-radius:999px;
+  background:var(--forest); color:var(--bone);
+  text-decoration:none;
+  font-weight:700;
+  transition:background .25s, transform .2s var(--ease);
+}
+.live-btn:hover{ background:var(--olive); }
+.live-btn:active{ transform:scale(.97); }
+.live-btn[hidden]{ display:none; }
+
 /* ПРОГРАМА: горизонтальна стрічка зі snap */
 .program{ background:var(--sand); border-radius:26px; margin:0 .6rem; }
 .program-track{
@@ -1180,10 +1228,25 @@ footer .monogram{
             <a class="details-link" href="https://maps.google.com/?q=SOL+Church,+5948+Pecan+Ave,+Orangevale,+CA+95662" target="_blank" rel="noopener">Google Maps ↗</a>
             <a class="details-link" href="https://maps.apple.com/?q=SOL+Church&amp;address=5948+Pecan+Ave,+Orangevale,+CA+95662" target="_blank" rel="noopener">Apple Maps ↗</a>
           </span></span></li>
+        <li><span class="k">Трансляция</span><span class="v"><a class="details-link" href="#live">Онлайн ↓</a></span></li>
       </ul>
     </div>
     <div class="details-media reveal" style="--d:.2s">
       <img src="img-web/img_1603.jpg" alt="Эрик обнимает Арину на вершине холма" width="1400" height="2100" loading="lazy" decoding="async" style="object-position:center 30%">
+    </div>
+  </div>
+</section>
+
+<!-- ============ ТРАНСЛЯЦИЯ ============ -->
+<section class="section live-section" id="live">
+  <div class="container">
+    <div class="live-card reveal">
+      <span class="live-badge" lang="en"><i aria-hidden="true"></i>Live</span>
+      <h2 lang="en">Watch Online</h2>
+      <p class="live-text">Не сможете быть с нами лично? Смотрите венчание онлайн. Начало трансляции в 3:00&nbsp;pm по времени Калифорнии.</p>
+      <!-- Кнопка з'являється сама: коли LIVE_URL заповнено І до церемонії лишилось ≤ 24 год -->
+      <a class="live-btn" id="liveBtn" href="#" target="_blank" rel="noopener" hidden>Смотреть трансляцию ↗</a>
+      <p class="live-soon" id="liveSoon">Ссылка на трансляцию появится здесь за&nbsp;24&nbsp;часа до начала церемонии.</p>
     </div>
   </div>
 </section>
@@ -1408,6 +1471,10 @@ const RSVP_CONFIG = {
 };
 
 const WEDDING_DATE = new Date('2026-11-20T15:00:00-08:00');
+
+/* ТРАНСЛЯЦИЯ: вставьте ссылку (YouTube и т.п.), когда она будет готова.
+   Кнопка появится сама не раньше чем за 24 часа до начала церемонии. */
+const LIVE_URL = '';
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const vibrate = (ms) => { try{ navigator.vibrate?.(ms); }catch(e){} };
 
@@ -1493,6 +1560,26 @@ if (reduceMotion){
   setTimeout(finishPreloader, 1700);
   preloader.addEventListener('click', finishPreloader);
 }
+
+/* ============================================================
+   ТРАНСЛЯЦІЯ: показуємо кнопку за 24 год до церемонії
+   ============================================================ */
+(function(){
+  const btn = document.getElementById('liveBtn');
+  const soon = document.getElementById('liveSoon');
+  const opensAt = WEDDING_DATE.getTime() - 24 * 36e5;
+  function update(){
+    const open = LIVE_URL && Date.now() >= opensAt;
+    btn.hidden = !open;
+    soon.hidden = !!open;
+    if (open){ btn.href = LIVE_URL; return true; }
+    return false;
+  }
+  // перевіряємо щохвилини, якщо сторінка відкрита довго
+  if (!update() && LIVE_URL){
+    const t = setInterval(() => { if (update()) clearInterval(t); }, 6e4);
+  }
+})();
 
 /* ============================================================
    ЗВОРОТНИЙ ВІДЛІК: плавна «прокрутка» цифр
