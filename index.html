@@ -915,6 +915,29 @@ body.is-ready .hero-names .line:nth-child(3) .inner{ animation-delay:.22s; }
 .form-status.err{ color:var(--brown); }
 .honeypot{ position:absolute; left:-9999px; opacity:0; }
 
+/* заглушка до відкриття реєстрації */
+.rsvp-soon{
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:.5rem;
+  min-height:220px;
+  padding:2.4rem 1.5rem;
+  border-radius:var(--radius);
+  border:1.5px dashed rgba(54,58,34,.3);
+  background:rgba(243,239,230,.3);
+  text-align:center;
+}
+.rsvp-soon[hidden]{ display:none; }
+.rsvp-soon-label{
+  font-size:.78rem; font-weight:700;
+  letter-spacing:.28em; text-transform:uppercase;
+  color:var(--brown);
+}
+.rsvp-soon-date{
+  font-family:var(--font-display);
+  font-size:clamp(2.6rem, 10vw, 3.6rem);
+  line-height:1;
+}
+
 .rsvp-success{
   display:none;
   text-align:center;
@@ -1024,7 +1047,7 @@ body.is-ready .hero-names .line:nth-child(3) .inner{ animation-delay:.22s; }
 .finale-content p{ color:var(--sand); font-weight:600; }
 
 footer{
-  background:var(--brown);
+  background:var(--forest);
   color:var(--sand);
   text-align:center;
   padding:2.4rem 0 calc(2.4rem + var(--safe-b));
@@ -1100,7 +1123,7 @@ footer .monogram{
     <a class="nav-logo" href="#top" aria-label="Erik & Arina, в начало">E<span class="amp">&</span>A</a>
     <ul class="nav-links">
       <li><a href="#details" lang="en">Details</a></li>
-      <li><a href="#program" lang="en">Schedule</a></li>
+      <li data-opens hidden><a href="#program" lang="en">Schedule</a></li>
       <li><a href="#dresscode" lang="en">Dress Code</a></li>
       <li><a href="#gallery" lang="en">Moments</a></li>
     </ul>
@@ -1255,7 +1278,7 @@ footer .monogram{
 
 <!-- ============ ПРОГРАММА ============ -->
 <!-- TODO: подтвердить время и пункты программы -->
-<section class="section" id="program" style="background:transparent; padding-inline:0;">
+<section class="section" id="program" style="background:transparent; padding-inline:0;" data-opens hidden>
   <div class="program" style="padding-top:4.5rem; padding-bottom:.4rem;">
     <div class="section-head">
       <h2 class="reveal" lang="en">The Wedding Day</h2>
@@ -1335,12 +1358,17 @@ footer .monogram{
     <div class="rsvp-intro">
       <span class="eyebrow reveal">RSVP</span>
       <h2 class="reveal" style="--d:.08s">Будем рады видеть именно вас</h2>
-      <!-- TODO: подтвердить дедлайн -->
-      <p class="reveal" style="--d:.16s">Пожалуйста, подтвердите своё присутствие до&nbsp;1&nbsp;ноября 2026&nbsp;года. Это поможет нам позаботиться о каждом госте.</p>
+      <p class="reveal" style="--d:.16s" data-until-open>Форма регистрации будет доступна с&nbsp;10&nbsp;ноября. Пожалуйста, загляните сюда снова, чтобы подтвердить своё присутствие.</p>
+      <p class="reveal" style="--d:.16s" data-opens hidden>Пожалуйста, подтвердите своё присутствие. Это поможет нам позаботиться о каждом госте.</p>
     </div>
 
     <div>
-      <form id="rsvpForm" novalidate>
+      <div class="rsvp-soon reveal" style="--d:.2s" data-until-open>
+        <span class="rsvp-soon-label">Регистрация откроется</span>
+        <span class="rsvp-soon-date">10 ноября</span>
+      </div>
+
+      <form id="rsvpForm" novalidate data-opens hidden>
         <div class="field" id="fieldName">
           <label for="guestName">Ваше имя и фамилия <span class="req" aria-hidden="true">*</span></label>
           <input type="text" id="guestName" name="name" autocomplete="name" required>
@@ -1477,6 +1505,15 @@ const WEDDING_DATE = new Date('2026-11-20T15:00:00-08:00');
 /* ТРАНСЛЯЦИЯ: вставьте ссылку (YouTube и т.п.), когда она будет готова.
    Кнопка появится сама не раньше чем за 24 часа до начала церемонии. */
 const LIVE_URL = '';
+
+/* Програма дня та форма реєстрації відкриваються 10 листопада (час Каліфорнії).
+   До того: [data-opens] приховані, [data-until-open] показані. */
+const REGISTRATION_OPENS = new Date('2026-11-10T00:00:00-08:00');
+(function(){
+  const open = Date.now() >= REGISTRATION_OPENS.getTime();
+  document.querySelectorAll('[data-opens]').forEach(el => { el.hidden = !open; });
+  document.querySelectorAll('[data-until-open]').forEach(el => { el.hidden = open; });
+})();
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const vibrate = (ms) => { try{ navigator.vibrate?.(ms); }catch(e){} };
 
