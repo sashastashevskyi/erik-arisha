@@ -810,9 +810,10 @@ body.is-ready .hero-names .line:nth-child(3) .inner{ animation-delay:.22s; }
 /* ============================================================
    RSVP
    ============================================================ */
+/* світлий шавлієвий фон, тому весь текст форми темний */
 .rsvp-section{
-  background:var(--brown);
-  color:var(--bone);
+  background:var(--sage);
+  color:var(--forest);
   border-radius:26px;
   margin:0 .6rem;
 }
@@ -824,43 +825,43 @@ body.is-ready .hero-names .line:nth-child(3) .inner{ animation-delay:.22s; }
   display:inline-block;
   font-size:.78rem; font-weight:700;
   letter-spacing:.32em; text-transform:uppercase;
-  color:var(--sage);
+  color:var(--brown);
   margin-bottom:.9rem;
 }
 .rsvp-intro h2{ font-size:clamp(2.2rem, 8vw, 3.4rem); margin-bottom:1rem; }
-.rsvp-intro p{ color:var(--sand); max-width:44ch; }
+.rsvp-intro p{ color:var(--forest); max-width:44ch; }
 
 .field{ margin-bottom:1.3rem; }
 .field label, .field-label-static{
   display:block;
   font-size:.85rem; font-weight:600;
   margin-bottom:.45rem;
-  color:var(--sand);
+  color:var(--forest);
 }
-.field .req{ color:var(--sage); }
+.field .req{ color:var(--brown); }
 .field input[type="text"],
 .field select,
 .field textarea{
   width:100%;
-  background:rgba(243,239,230,.07);
-  border:1.5px solid rgba(226,218,198,.35);
+  background:rgba(243,239,230,.45);
+  border:1.5px solid rgba(54,58,34,.2);
   border-radius:1rem;
   padding:.95rem 1.1rem;
-  color:var(--bone);
+  color:var(--forest);
   font-family:var(--font-body);
   font-size:1rem;
   transition:border-color .3s, background .3s;
 }
 .field input::placeholder,
-.field textarea::placeholder{ color:rgba(226,218,198,.55); }
+.field textarea::placeholder{ color:rgba(54,58,34,.5); }
 .field input:focus, .field select:focus, .field textarea:focus{
   outline:none;
-  border-color:var(--sage);
-  background:rgba(243,239,230,.12);
+  border-color:var(--forest);
+  background:rgba(243,239,230,.7);
 }
 .field select{
   appearance:none;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' fill='none'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%23E2DAC6' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' fill='none'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%23363A22' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat:no-repeat;
   background-position:right 1.1rem center;
 }
@@ -876,53 +877,54 @@ body.is-ready .hero-names .line:nth-child(3) .inner{ animation-delay:.22s; }
   display:block; text-align:center;
   padding:.95rem .8rem;
   border-radius:1rem;
-  border:1.5px solid rgba(226,218,198,.35);
+  border:1.5px solid rgba(54,58,34,.25);
+  background:rgba(243,239,230,.3);
   font-weight:700; font-size:1rem;
   transition:background .3s, border-color .3s, color .3s, transform .2s var(--ease);
 }
 .choice input:active + span{ transform:scale(.97); }
 .choice input:checked + span{
-  background:var(--bone);
-  border-color:var(--bone);
-  color:var(--forest);
+  background:var(--forest);
+  border-color:var(--forest);
+  color:var(--bone);
 }
-.choice input:focus-visible + span{ outline:2px solid var(--sage); outline-offset:2px; }
+.choice input:focus-visible + span{ outline:2px solid var(--forest); outline-offset:2px; }
 
 .field-error{
   display:none;
   margin-top:.4rem;
   font-size:.85rem; font-weight:600;
-  color:var(--sand);
+  color:var(--brown);
 }
-.field.has-error input, .field.has-error .choice span{ border-color:var(--sage); }
+.field.has-error input, .field.has-error .choice span{ border-color:var(--brown); }
 .field.has-error .field-error{ display:block; }
 
 .rsvp-submit{
   width:100%;
-  background:var(--bone); color:var(--forest);
+  background:var(--forest); color:var(--bone);
   border:0; cursor:pointer;
   padding:1.05rem 2rem;
   border-radius:999px;
   font-size:1rem; font-weight:700;
   transition:background .25s, transform .2s var(--ease);
 }
-.rsvp-submit:hover{ background:var(--sand); }
+.rsvp-submit:hover{ background:var(--brown); }
 .rsvp-submit:active{ transform:scale(.98); }
 .rsvp-submit[disabled]{ opacity:.6; cursor:wait; transform:none; }
 .form-status{ margin-top:.9rem; font-size:.92rem; font-weight:600; min-height:1.4em; }
-.form-status.err{ color:var(--sage); }
+.form-status.err{ color:var(--brown); }
 .honeypot{ position:absolute; left:-9999px; opacity:0; }
 
 .rsvp-success{
   display:none;
   text-align:center;
   padding:3rem 1.5rem;
-  border:1.5px solid rgba(226,218,198,.35);
+  border:1.5px solid rgba(54,58,34,.25);
   border-radius:var(--radius);
 }
 .rsvp-success.is-shown{ display:block; }
 .rsvp-success h3{ font-size:2.2rem; margin-bottom:.8rem; }
-.rsvp-success p{ color:var(--sand); }
+.rsvp-success p{ color:var(--forest); }
 
 /* ============================================================
    ПОДАРУНОК
@@ -1387,7 +1389,7 @@ footer .monogram{
 
         <div class="field">
           <label for="guestWishes">Пожелание или комментарий</label>
-          <textarea id="guestWishes" name="wishes" placeholder="Несколько тёплых слов для нас, аллергии или особенности питания"></textarea>
+          <textarea id="guestWishes" name="wishes" placeholder="Несколько тёплых слов для нас"></textarea>
         </div>
 
         <input class="honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
