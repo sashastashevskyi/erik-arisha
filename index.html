@@ -1341,9 +1341,6 @@ footer .monogram{
               <select id="guestAdults" name="adults">
                 <option value="1" selected>1 взрослый</option>
                 <option value="2">2 взрослых</option>
-                <option value="3">3 взрослых</option>
-                <option value="4">4 взрослых</option>
-                <option value="5">5 взрослых</option>
               </select>
             </div>
             <div>
@@ -1852,9 +1849,9 @@ async function sendRSVP(payload){
 }
 
 const extraGuests = document.getElementById('extraGuests');
-const guestOrdinals = ['второго', 'третьего', 'четвёртого', 'пятого'];
+const guestLabels = ['партнёра'];
 function renderExtraGuests(){
-  const count = Math.max(0, Number(form.adults.value) - 1);
+  const count = Math.min(guestLabels.length, Math.max(0, Number(form.adults.value) - 1));
   const current = [...extraGuests.querySelectorAll('input')].map(i => i.value);
   extraGuests.innerHTML = '';
   for (let i = 0; i < count; i++){
@@ -1862,9 +1859,9 @@ function renderExtraGuests(){
     const wrap = document.createElement('div');
     wrap.className = 'field extra-guest';
     wrap.innerHTML =
-      '<label for="' + id + '">Имя и фамилия ' + guestOrdinals[i] + ' гостя <span class="req" aria-hidden="true">*</span></label>' +
+      '<label for="' + id + '">Имя и фамилия ' + guestLabels[i] + ' <span class="req" aria-hidden="true">*</span></label>' +
       '<input type="text" id="' + id + '" autocomplete="off">' +
-      '<p class="field-error">Пожалуйста, укажите имя ' + guestOrdinals[i] + ' гостя.</p>';
+      '<p class="field-error">Пожалуйста, укажите имя ' + guestLabels[i] + '.</p>';
     wrap.querySelector('input').value = current[i] || '';
     extraGuests.appendChild(wrap);
   }
