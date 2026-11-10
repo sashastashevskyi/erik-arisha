@@ -20,8 +20,6 @@
 <link rel="icon" type="image/png" sizes="64x64" href="favicon-64.png">
 <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
 
-<!-- Статистика відвідувань: GoatCounter (без cookies, банер згоди не потрібен).
-     Панель: https://erik-arisha.goatcounter.com · локальні перегляди (localhost) не рахуються -->
 <script data-goatcounter="https://erik-arisha.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,9 +52,7 @@
 </script>
 
 <style>
-/* ============================================================
-   ПАЛИТРА: оливково-костяная (только эти 5 цветов и их прозрачности)
-   ============================================================ */
+
 :root{
   --bone:#F3EFE6;
   --sand:#E2DAC6;
@@ -106,7 +102,6 @@ button{ font-family:var(--font-body); }
 
 .container{ width:min(1100px, 100% - 2.5rem); margin-inline:auto; }
 
-/* плівкова зернистість поверх усього */
 body::after{
   content:"";
   position:fixed; inset:0;
@@ -116,9 +111,6 @@ body::after{
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* ============================================================
-   ДОСТУПНІСТЬ
-   ============================================================ */
 .skip-link{
   position:absolute; left:1rem; top:-4rem; z-index:300;
   background:var(--forest); color:var(--bone);
@@ -130,12 +122,6 @@ body::after{
 :focus-visible{ outline:2px solid var(--sage); outline-offset:3px; border-radius:4px; }
 .visually-hidden{ position:absolute; width:1px; height:1px; clip-path:inset(50%); overflow:hidden; white-space:nowrap; }
 
-/* ============================================================
-   ЛІНІЯ ПРОГРЕСУ ПРОКРУТКИ
-   Керується JS (transform у rAF) — стабільно в усіх браузерах,
-   на відміну від CSS scroll-timeline, який смикається у Chrome,
-   коли ховається адресний рядок.
-   ============================================================ */
 .progress{
   position:fixed; top:0; left:0; z-index:210;
   width:100%; height:3px;
@@ -146,9 +132,6 @@ body::after{
   transition:transform .12s linear;
 }
 
-/* ============================================================
-   ПРЕЛОАДЕР
-   ============================================================ */
 .preloader{
   position:fixed; inset:0; z-index:250;
   background:var(--forest);
@@ -189,9 +172,6 @@ body::after{
 @keyframes preFade{ to{ opacity:1; } }
 @keyframes preLine{ to{ transform:scaleX(1); } }
 
-/* ============================================================
-   НАВІГАЦІЯ (мінімальна)
-   ============================================================ */
 .nav{
   position:fixed; top:0; left:0; right:0; z-index:200;
   height:var(--nav-h);
@@ -265,14 +245,10 @@ body.show-nav-date .nav-date{ opacity:1; transform:none; }
   .nav-cta-mini{ display:inline-block; }
 }
 
-/* ============================================================
-   ПЛАВАЮЧА ПАНЕЛЬ ДІЙ (мобільний патерн)
-   ============================================================ */
 .actionbar{
   position:fixed; left:50%; bottom:calc(var(--safe-b) + 22px);
   z-index:205;
-  /* ховаємо глибоко за край (разом із тінню), щоб під час появи
-     її не було видно завчасно на жодному браузері */
+
   transform:translate(-50%, 300%);
   display:flex; align-items:center; gap:.5rem;
   padding:.45rem;
@@ -313,17 +289,13 @@ body.show-nav-date .nav-date{ opacity:1; transform:none; }
 .ab-icon:active{ transform:scale(.92); }
 .ab-icon svg{ width:20px; height:20px; stroke:currentColor; fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
 
-/* ============================================================
-   КІНОСТРІЧКА: sticky-stack сцени
-   ============================================================ */
 .cinema{ position:relative; }
 .chapter{
   position:sticky; top:0;
-  /* svh замість dvh: висота НЕ змінюється, коли на телефоні
-     ховається/з'являється адресний рядок, тому сцени не смикаються */
+
   height:100vh;
   height:100svh;
-  /* --app-h: стабільна висота екрана з JS (див. скрипт одразу після <body>) */
+
   height:var(--app-h, 100svh);
   overflow:hidden;
   display:flex; flex-direction:column; justify-content:flex-start;
@@ -337,8 +309,7 @@ body.show-nav-date .nav-date{ opacity:1; transform:none; }
   width:100%; height:100%;
   object-fit:cover;
 }
-/* текст сцен живе ВГОРІ, на світлому небі фотографій,
-   тому вуаль світла і йде згори донизу */
+
 .chapter-scrim{
   position:absolute; inset:0; z-index:1;
   background:linear-gradient(to bottom,
@@ -350,8 +321,7 @@ body.show-nav-date .nav-date{ opacity:1; transform:none; }
 .chapter-content{
   position:relative; z-index:2;
   color:var(--forest);
-  /* фіксований відступ у rem: не залежить від висоти в'юпорта,
-     тому текст не рухається, коли браузер ховає адресний рядок */
+
   padding:calc(var(--nav-h) + 1.8rem) 1.6rem 0;
   width:min(760px, 100%);
   margin-inline:auto;
@@ -361,7 +331,6 @@ body.show-nav-date .nav-date{ opacity:1; transform:none; }
   margin-bottom:.7rem;
 }
 
-/* На мобільному цитату трохи піднімаємо над центром екрана */
 @media (max-width:899px){
   .quote-chapter .chapter-content--center{ transform:translateY(calc(var(--app-h, 100svh) * -.09)); }
 }
@@ -373,7 +342,6 @@ body.show-nav-date .nav-date{ opacity:1; transform:none; }
   font-weight:500;
 }
 
-/* HERO-сцена */
 .hero .chapter-scrim{
   background:linear-gradient(to bottom,
     rgba(243,239,230,.92) 0%,
@@ -417,7 +385,7 @@ body.is-ready .hero-names .inner{ animation:riseUp 1s var(--ease) forwards; }
 body.is-ready .hero-names .line:nth-child(2) .inner{ animation-delay:.12s; }
 body.is-ready .hero-names .line:nth-child(3) .inner{ animation-delay:.22s; }
 @keyframes riseUp{ to{ transform:translateY(0); } }
-/* повільний кінематографічний зум фото */
+
 @media (prefers-reduced-motion: no-preference){
   .hero .chapter-bg img{
     transform:scale(1.1);
@@ -426,9 +394,6 @@ body.is-ready .hero-names .line:nth-child(3) .inner{ animation-delay:.22s; }
   @keyframes kenburns{ to{ transform:scale(1); } }
 }
 
-/* ДЕСКТОП: асиметрична редакційна композиція.
-   Імена та підписи йдуть у лівий стовпчик над відкритою частиною кадру,
-   персонажі (центр/праворуч) ніколи не перекриваються текстом. */
 @media (min-width:900px){
   .hero-top{
     width:min(1100px, 100% - 5rem);
@@ -441,7 +406,7 @@ body.is-ready .hero-names .line:nth-child(3) .inner{ animation-delay:.22s; }
     max-width:12ch;
   }
   .hero .chapter-bg img{ object-position:68% center; }
-  /* вертикальні фото на широкому екрані: тримаємо обличчя в кадрі */
+
   .chapter:not(.hero):not(.quote-chapter) .chapter-bg img{ object-position:center 30% !important; }
   .hero .chapter-scrim{
     background:
@@ -453,7 +418,6 @@ body.is-ready .hero-names .line:nth-child(3) .inner{ animation-delay:.22s; }
       linear-gradient(to top, rgba(54,58,34,.4) 0%, rgba(54,58,34,0) 26%);
   }
 
-  /* текст сцен угорі ліворуч, на світлому небі */
   .chapter-content:not(.chapter-content--center){
     margin-inline:0;
     width:min(1100px, 100% - 5rem);
@@ -469,7 +433,6 @@ body.is-ready .hero-names .line:nth-child(3) .inner{ animation-delay:.22s; }
   }
 }
 
-/* СЦЕНА-ТАЙМЕР */
 .chapter--dark{
   background:var(--forest);
   justify-content:center;
@@ -527,9 +490,6 @@ body.is-ready .hero-names .line:nth-child(3) .inner{ animation-delay:.22s; }
   .countdown-date span + span + span{ margin-top:.5rem; }
 }
 
-/* ============================================================
-   ЗВИЧАЙНІ СЕКЦІЇ
-   ============================================================ */
 .section{ position:relative; padding:5.5rem 0; background:var(--bone); }
 .section-head{ text-align:center; margin-bottom:2.8rem; }
 .section-head h2{
@@ -540,7 +500,7 @@ body.is-ready .hero-names .line:nth-child(3) .inner{ animation-delay:.22s; }
   max-width:46ch;
   color:var(--olive);
 }
-/* перша секція після кіно наїжджає округленням */
+
 .section--overlap{
   border-radius:26px 26px 0 0;
   margin-top:-26px;
@@ -548,7 +508,6 @@ body.is-ready .hero-names .line:nth-child(3) .inner{ animation-delay:.22s; }
   box-shadow:0 -24px 70px rgba(54,58,34,.35);
 }
 
-/* reveal */
 .reveal{
   opacity:0; transform:translateY(30px);
   transition:opacity .9s var(--ease), transform .9s var(--ease);
@@ -559,7 +518,6 @@ body.is-ready .hero-names .line:nth-child(3) .inner{ animation-delay:.22s; }
   .reveal{ opacity:1; transform:none; }
 }
 
-/* ДЕТАЛІ */
 .details-grid{
   display:grid; gap:2.2rem;
 }
@@ -597,7 +555,6 @@ body.is-ready .hero-names .line:nth-child(3) .inner{ animation-delay:.22s; }
   object-fit:cover;
 }
 
-/* ТРАНСЛЯЦІЯ */
 .live-section{ padding-top:1rem; }
 .live-card{
   max-width:640px;
@@ -645,7 +602,6 @@ body.is-ready .hero-names .line:nth-child(3) .inner{ animation-delay:.22s; }
 .live-btn:active{ transform:scale(.97); }
 .live-btn[hidden]{ display:none; }
 
-/* ПРОГРАМА: горизонтальна стрічка зі snap */
 .program{ background:var(--sand); border-radius:26px; margin:0 .6rem; }
 .program-track{
   display:flex; gap:1rem;
@@ -694,7 +650,7 @@ body.is-ready .hero-names .line:nth-child(3) .inner{ animation-delay:.22s; }
   position:absolute; inset:0; z-index:-1;
   background:linear-gradient(to top, rgba(54,58,34,.78) 10%, rgba(54,58,34,.15) 65%);
 }
-/* вечірня картка: глибша вуаль, щоб атмосфера була як на заході сонця */
+
 .program-card.has-photo.program-card--evening::after{
   background:linear-gradient(to top, rgba(54,58,34,.88) 8%, rgba(54,58,34,.35) 60%, rgba(54,58,34,.15) 100%);
 }
@@ -711,7 +667,6 @@ body.is-ready .hero-names .line:nth-child(3) .inner{ animation-delay:.22s; }
   user-select:none; -webkit-user-select:none;
 }
 
-/* ДРЕС-КОД */
 .palette{
   display:flex; justify-content:center; flex-wrap:wrap;
   gap:1rem;
@@ -734,9 +689,6 @@ body.is-ready .hero-names .line:nth-child(3) .inner{ animation-delay:.22s; }
 }
 .swatch:active i{ transform:scale(.92); }
 
-/* ============================================================
-   ГАЛЕРЕЯ: СВАЙП-КОЛОДА (адаптація 21st.dev Image Swiper)
-   ============================================================ */
 .deck-section{ overflow:hidden; }
 .deck-wrap{
   position:relative;
@@ -809,10 +761,6 @@ body.is-ready .hero-names .line:nth-child(3) .inner{ animation-delay:.22s; }
   color:var(--olive);
 }
 
-/* ============================================================
-   RSVP
-   ============================================================ */
-/* світлий шавлієвий фон, тому весь текст форми темний */
 .rsvp-section{
   background:var(--sage);
   color:var(--forest);
@@ -922,7 +870,6 @@ body.is-ready .hero-names .line:nth-child(3) .inner{ animation-delay:.22s; }
 .form-status.err{ color:var(--brown); }
 .honeypot{ position:absolute; left:-9999px; opacity:0; }
 
-/* заглушка до відкриття реєстрації */
 .rsvp-soon{
   display:flex; flex-direction:column; align-items:center; justify-content:center;
   gap:.5rem;
@@ -956,9 +903,6 @@ body.is-ready .hero-names .line:nth-child(3) .inner{ animation-delay:.22s; }
 .rsvp-success h3{ font-size:2.2rem; margin-bottom:.8rem; }
 .rsvp-success p{ color:var(--forest); }
 
-/* ============================================================
-   ПОДАРУНОК
-   ============================================================ */
 .gift-methods{
   display:flex; flex-wrap:wrap; justify-content:center;
   gap:.7rem;
@@ -979,8 +923,7 @@ body.is-ready .hero-names .line:nth-child(3) .inner{ animation-delay:.22s; }
 }
 .gift-pill:hover{ background:rgba(167,168,128,.14); border-color:var(--olive); }
 .gift-pill:active{ transform:scale(.96); }
-/* явний, важко-пропустити стан після успішного копіювання:
-   сама кнопка змінюється, а не малопомітний рядок десь окремо */
+
 .gift-pill.is-copied{
   background:var(--forest);
   border-color:var(--forest);
@@ -1009,7 +952,7 @@ body.is-ready .hero-names .line:nth-child(3) .inner{ animation-delay:.22s; }
   font-size:1.02rem;
   text-wrap:balance;
 }
-/* сердечко йде одразу за останнім словом, а не відривається вбік */
+
 .gift-heart{
   display:inline-block;
   width:15px; height:15px;
@@ -1018,9 +961,6 @@ body.is-ready .hero-names .line:nth-child(3) .inner{ animation-delay:.22s; }
   fill:var(--sage);
 }
 
-/* ============================================================
-   ФІНАЛ
-   ============================================================ */
 .finale{
   position:relative;
   min-height:92vh;
@@ -1073,7 +1013,7 @@ footer{
   vertical-align:-1px;
   fill:currentColor;
 }
-/* підпис автора: частина рядка футера, в тон тексту; підкреслення лише при наведенні */
+
 .credit{
   color:inherit;
   text-decoration:none;
@@ -1091,19 +1031,14 @@ footer .monogram{
   margin-bottom:.4rem;
 }
 
-/* пелюстковий canvas */
 #petals{
   position:fixed; inset:0; z-index:240;
   pointer-events:none;
   display:none;
 }
 
-
 .map-links{ display:flex; flex-wrap:wrap; justify-content:flex-end; gap:.4rem 1rem; margin-top:.35rem; }
 
-/* ============================================================
-   REDUCED MOTION
-   ============================================================ */
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior:auto; }
   .preloader{ display:none; }
@@ -1119,12 +1054,7 @@ footer .monogram{
 
 <body class="is-locked">
 <script>
-/* СТАБІЛЬНА ВИСОТА ЕКРАНА
-   Вбудований браузер Telegram (і Instagram) на iPhone змінює реальну висоту
-   сторінки, коли його нижня панель виїжджає/ховається під час гортання.
-   Тоді vh/svh/lvh перераховуються, і сцени-блоки «скачуть».
-   Тому висоту запам'ятовуємо в пікселях і лише збільшуємо її (як lvh);
-   скидаємо тільки коли змінюється ширина (поворот телефона). */
+
 (function(){
   var root = document.documentElement, w = innerWidth, h = innerHeight;
   function apply(){ root.style.setProperty('--app-h', h + 'px'); }
@@ -1141,14 +1071,12 @@ footer .monogram{
 <a class="skip-link" href="#main">Перейти к содержанию</a>
 <div class="progress" aria-hidden="true"></div>
 
-<!-- ПРЕЛОАДЕР -->
 <div class="preloader" id="preloader" role="presentation">
   <div class="pre-mono">E <span class="amp">&</span> A</div>
   <div class="pre-line"><i></i></div>
   <div class="pre-date">11 . 20 . 2026</div>
 </div>
 
-<!-- НАВИГАЦИЯ -->
 <header class="nav" id="nav">
   <div class="container nav-inner">
     <a class="nav-logo" href="#top" aria-label="Erik & Arina, в начало">E<span class="amp">&</span>A</a>
@@ -1169,7 +1097,6 @@ footer .monogram{
   </div>
 </header>
 
-<!-- ПЛАВАЮЩАЯ ПАНЕЛЬ ДЕЙСТВИЙ -->
 <div class="actionbar" id="actionbar">
   <a class="ab-primary" href="#rsvp">Подтвердить</a>
   <a class="ab-icon" id="icsBtn" data-track="calendar" href="#" target="_blank" rel="noopener" aria-label="Добавить событие в календарь">
@@ -1182,10 +1109,8 @@ footer .monogram{
 
 <main id="main">
 
-<!-- ============ КИНОЛЕНТА ============ -->
 <div class="cinema" id="top">
 
-  <!-- Сцена 1: HERO (на телефоне вертикальное фото, на десктопе горизонтальное) -->
   <section class="chapter hero" aria-label="Приглашение">
     <div class="chapter-bg">
       <picture>
@@ -1204,7 +1129,6 @@ footer .monogram{
     </div>
   </section>
 
-  <!-- Сцена 2: ПРИГЛАШЕНИЕ + ТАЙМЕР -->
   <section class="chapter chapter--dark" aria-label="Приглашение и обратный отсчёт">
     <div class="container">
       <p class="countdown-invite">Приглашаем вас разделить с нами самый важный день нашей жизни</p>
@@ -1219,7 +1143,6 @@ footer .monogram{
     </div>
   </section>
 
-  <!-- Сцена 3 -->
   <section class="chapter" aria-label="Our Story">
     <div class="chapter-bg">
       <img src="img-web/img_0471.jpg" alt="Эрик и Арина держатся за руки и смотрят друг на друга на фоне неба" width="1536" height="2048" loading="lazy" decoding="async" style="object-position:center 70%">
@@ -1231,7 +1154,6 @@ footer .monogram{
     </div>
   </section>
 
-  <!-- Сцена 4 -->
   <section class="chapter" aria-label="Hand in Hand">
     <div class="chapter-bg">
       <img src="img-web/img_1597.jpg" alt="Эрик кружит Арину в танце на закате" width="1400" height="2100" loading="lazy" decoding="async" style="object-position:center 75%">
@@ -1243,7 +1165,6 @@ footer .monogram{
     </div>
   </section>
 
-  <!-- Сцена 5 -->
   <section class="chapter" aria-label="Love">
     <div class="chapter-bg">
       <img src="img-web/img_1598.jpg" alt="Арина прижалась к Эрику посреди высокой золотой травы" width="1400" height="2100" loading="lazy" decoding="async" style="object-position:center 70%">
@@ -1255,7 +1176,6 @@ footer .monogram{
     </div>
   </section>
 
-  <!-- Сцена 6: цитата -->
   <section class="chapter quote-chapter" aria-label="Цитата">
     <div class="chapter-bg">
       <img src="img-web/img_1611.jpg" alt="Пара обнимается вдали посреди поля на закате" width="2100" height="1400" loading="lazy" decoding="async" style="object-position:48% center">
@@ -1269,14 +1189,13 @@ footer .monogram{
 
 </div>
 
-<!-- ============ ДЕТАЛИ ============ -->
 <section class="section section--overlap" id="details">
   <div class="container details-grid">
     <div>
       <h2 class="reveal" style="font-size:clamp(2.2rem,8vw,3.4rem); margin-bottom:1.6rem;" lang="en">When &amp; Where</h2>
       <ul class="details-list reveal" style="--d:.1s">
         <li><span class="k">Дата</span><span class="v">Пятница, 20 ноября 2026</span></li>
-        <!-- TODO: подтвердить время -->
+
         <li><span class="k">Сбор гостей</span><span class="v">2:30 pm</span></li>
         <li><span class="k">Церемония</span><span class="v">3:00 pm</span></li>
         <li><span class="k">Место</span><span class="v">SOL Church<br>5948 Pecan Ave<br>Orangevale, CA 95662
@@ -1293,22 +1212,19 @@ footer .monogram{
   </div>
 </section>
 
-<!-- ============ ТРАНСЛЯЦИЯ ============ -->
 <section class="section live-section" id="live">
   <div class="container">
     <div class="live-card reveal">
       <span class="live-badge" lang="en"><i aria-hidden="true"></i>Live</span>
       <h2 lang="en">Watch Online</h2>
       <p class="live-text">Не сможете быть с нами лично? Смотрите венчание онлайн. Начало трансляции в 3:00&nbsp;pm по времени Калифорнии.</p>
-      <!-- Кнопка з'являється сама: коли LIVE_URL заповнено І до церемонії лишилось ≤ 24 год -->
+
       <a class="live-btn" id="liveBtn" data-track="live-stream" href="#" target="_blank" rel="noopener" hidden>Смотреть трансляцию ↗</a>
       <p class="live-soon" id="liveSoon">Ссылка на трансляцию появится здесь за&nbsp;24&nbsp;часа до начала церемонии.</p>
     </div>
   </div>
 </section>
 
-<!-- ============ ПРОГРАММА ============ -->
-<!-- TODO: подтвердить время и пункты программы -->
 <section class="section" id="program" style="background:transparent; padding-inline:0;" data-opens hidden>
   <div class="program" style="padding-top:4.5rem; padding-bottom:.4rem;">
     <div class="section-head">
@@ -1338,7 +1254,6 @@ footer .monogram{
   </div>
 </section>
 
-<!-- ============ ДРЕСС-КОД ============ -->
 <section class="section" id="dresscode">
   <div class="container" style="text-align:center;">
     <div class="section-head" style="margin-bottom:0;">
@@ -1355,7 +1270,6 @@ footer .monogram{
   </div>
 </section>
 
-<!-- ============ ГАЛЕРЕЯ: СВАЙП-КОЛОДА ============ -->
 <section class="section deck-section" id="gallery" style="padding-top:2rem;">
   <div class="container">
     <div class="section-head">
@@ -1383,7 +1297,6 @@ footer .monogram{
   <p class="deck-hint" aria-hidden="true">листайте карточки</p>
 </section>
 
-<!-- ============ RSVP ============ -->
 <section class="section rsvp-section" id="rsvp">
   <div class="container rsvp-grid">
     <div class="rsvp-intro">
@@ -1446,7 +1359,6 @@ footer .monogram{
           </div>
         </div>
 
-        <!-- поля з іменами інших дорослих: з'являються, коли обрано 2+ дорослих -->
         <div id="extraGuests"></div>
 
         <div class="field">
@@ -1468,7 +1380,6 @@ footer .monogram{
   </div>
 </section>
 
-<!-- ============ ПОДАРОК ============ -->
 <section class="section gift-section" id="gift">
   <div class="container" style="text-align:center;">
     <div class="section-head" style="margin-bottom:0;">
@@ -1478,8 +1389,7 @@ footer .monogram{
 
     <div class="gift-methods reveal" style="--d:.2s">
       <button class="gift-pill" type="button" data-track="zelle" data-copy="+19415992516" data-display="+1 941 599 2516" aria-label="Скопировать номер Zelle">Zelle</button>
-      <!-- TODO: Cash App — розкоментувати, коли буде посилання
-      <a class="gift-pill" href="https://cash.app/$CASHTAG" target="_blank" rel="noopener">Cash App</a> -->
+
     </div>
     <p class="gift-hint" id="giftHint" aria-live="polite"></p>
 
@@ -1490,7 +1400,6 @@ footer .monogram{
   </div>
 </section>
 
-<!-- ============ ФИНАЛ ============ -->
 <section class="finale" aria-label="See you soon">
   <picture>
     <source media="(min-width: 900px)" srcset="img-web/img_1600.jpg" width="2100" height="1400">
@@ -1514,42 +1423,31 @@ footer .monogram{
 <script>
 'use strict';
 
-/* ============================================================
-   КОНФИГУРАЦИЯ СОБЫТИЯ И ИНТЕГРАЦИЙ
-   ============================================================ */
 const EVENT = {
   title: 'Свадьба Эрика и Арины',
-  start: '20261120T143000',            // местное время Калифорнии (America/Los_Angeles)
+  start: '20261120T143000',
   end:   '20261120T213000',
   details: 'Сбор гостей в 2:30 pm. Венчание в 3:00 pm. Дресс-код: оттенки оливы, слоновой кости и коричневого.',
   locationName: 'SOL Church, 5948 Pecan Ave, Orangevale, CA 95662, United States'
 };
 
-/* Заполните ОДИН из вариантов, и форма будет отправлять ответы туда.
-   Пока всё пусто, ответы сохраняются только в браузере гостя (демо-режим)!
-   TODO перед рассылкой: вставить URL веб-приложения Google Apps Script (см. google-apps-script.js) */
 const RSVP_CONFIG = {
-  googleSheetsWebhook: '', // Apps Script Web App URL
+  googleSheetsWebhook: '',
   airtable: { token: '', baseId: '', tableName: '' },
   supabase: { url: '', anonKey: '', table: 'rsvp' }
 };
 
 const WEDDING_DATE = new Date('2026-11-20T15:00:00-08:00');
 
-/* ТРАНСЛЯЦИЯ: вставьте ссылку (YouTube и т.п.), когда она будет готова.
-   Кнопка появится сама не раньше чем за 24 часа до начала церемонии. */
 const LIVE_URL = '';
 
-/* Програма дня та форма реєстрації відкриваються 10 листопада (час Каліфорнії).
-   До того: [data-opens] приховані, [data-until-open] показані. */
 const REGISTRATION_OPENS = new Date('2026-11-10T00:00:00-08:00');
 (function(){
   const open = Date.now() >= REGISTRATION_OPENS.getTime();
   document.querySelectorAll('[data-opens]').forEach(el => { el.hidden = !open; });
   document.querySelectorAll('[data-until-open]').forEach(el => { el.hidden = open; });
 })();
-/* СТАТИСТИКА: події в GoatCounter (кліки по кнопках, відповіді RSVP).
-   Якщо лічильник не завантажився (блокувальник реклами) — тихо ігноруємо. */
+
 function track(name){
   try{ window.goatcounter && window.goatcounter.count && window.goatcounter.count({ path:name, title:name, event:true }); }catch(e){}
 }
@@ -1561,9 +1459,6 @@ document.addEventListener('click', (e) => {
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const vibrate = (ms) => { try{ navigator.vibrate?.(ms); }catch(e){} };
 
-/* ============================================================
-   ФОНОВАЯ МУЗЫКА (играет по кругу; кнопка в меню)
-   ============================================================ */
 const bgMusic = document.getElementById('bgMusic');
 const soundToggle = document.getElementById('soundToggle');
 bgMusic.volume = 0.35;
@@ -1578,14 +1473,10 @@ bgMusic.addEventListener('play', syncSoundUI);
 bgMusic.addEventListener('pause', syncSoundUI);
 syncSoundUI();
 
-// Гість сам вимкнув музику — більше не вмикаємо її автоматично
 let userMuted = false;
 
-// Автозапуск: пробуємо одразу. Браузери (особливо Safari, Telegram, Instagram)
-// часто блокують звук без дії користувача, тоді вмикаємо на перший дотик,
-// клік або клавішу будь-де на сторінці.
 function tryAutoStart(e){
-  // натискання на саму кнопку звуку обробляє її власний обробник
+
   if (e && e.target && e.target.closest && e.target.closest('#soundToggle')) return;
   if (userMuted || document.hidden || !bgMusic.paused) return;
   bgMusic.play().then(removeStartListeners).catch(() => {});
@@ -1597,8 +1488,6 @@ function removeStartListeners(){
 startEvents.forEach(ev => document.addEventListener(ev, tryAutoStart, { capture:true, passive:true }));
 tryAutoStart();
 
-// Згорнули вкладку / заблокували телефон / перейшли в інший застосунок — пауза.
-// Повернулися — музика продовжує грати (якщо гість її не вимикав).
 let pausedByHide = false;
 document.addEventListener('visibilitychange', () => {
   if (document.hidden){
@@ -1621,9 +1510,6 @@ soundToggle.addEventListener('click', (e) => {
   }
 });
 
-/* ============================================================
-   ПРЕЛОАДЕР
-   ============================================================ */
 const preloader = document.getElementById('preloader');
 
 function finishPreloader(){
@@ -1644,9 +1530,6 @@ if (reduceMotion){
   preloader.addEventListener('click', finishPreloader);
 }
 
-/* ============================================================
-   ТРАНСЛЯЦІЯ: показуємо кнопку за 24 год до церемонії
-   ============================================================ */
 (function(){
   const btn = document.getElementById('liveBtn');
   const soon = document.getElementById('liveSoon');
@@ -1658,15 +1541,12 @@ if (reduceMotion){
     if (open){ btn.href = LIVE_URL; return true; }
     return false;
   }
-  // перевіряємо щохвилини, якщо сторінка відкрита довго
+
   if (!update() && LIVE_URL){
     const t = setInterval(() => { if (update()) clearInterval(t); }, 6e4);
   }
 })();
 
-/* ============================================================
-   ЗВОРОТНИЙ ВІДЛІК: плавна «прокрутка» цифр
-   ============================================================ */
 function ruPlural(n, one, few, many){
   const m10 = n % 10, m100 = n % 100;
   if (m10 === 1 && m100 !== 11) return one;
@@ -1679,7 +1559,7 @@ let cdOnScreen = false;
 function rollTo(el, val){
   if (el.dataset.v === val) return;
   el.dataset.v = val;
-  // анімуємо «прокрутку» цифр лише коли таймер видно на екрані
+
   if (reduceMotion || !cdOnScreen){ el.textContent = val; return; }
   const out = el.animate(
     [{ transform:'translateY(0)', opacity:1 }, { transform:'translateY(-14px)', opacity:0 }],
@@ -1732,9 +1612,6 @@ let cdTimer;
 tick();
 cdTimer = setInterval(tick, 1000);
 
-/* ============================================================
-   REVEAL + НАВБАР (IntersectionObserver, без scroll-подій)
-   ============================================================ */
 if (!reduceMotion){
   const obs = new IntersectionObserver((entries) => {
     for (const e of entries){
@@ -1746,18 +1623,10 @@ if (!reduceMotion){
   document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
 }
 
-/* ============================================================
-   ЄДИНИЙ SCROLL-ОБРОБНИК (passive + rAF)
-   Керує повзунком прогресу, склом навбару, датою в меню та
-   панеллю дій. Один обробник з батчингом через requestAnimationFrame
-   поводиться однаково в Safari, Chrome та вбудованому браузері Telegram,
-   на відміну від CSS scroll-timeline та кількох IntersectionObserver,
-   які в цих браузерах спрацьовували по-різному.
-   ============================================================ */
 const nav = document.getElementById('nav');
 const progressBar = document.querySelector('.progress');
 const actionbar = document.getElementById('actionbar');
-const storyScene = document.querySelectorAll('.chapter')[2]; // «Our Story»
+const storyScene = document.querySelectorAll('.chapter')[2];
 const detailsSection = document.getElementById('details');
 const rsvpSection = document.getElementById('rsvp');
 
@@ -1771,18 +1640,14 @@ function onScroll(){
     const vh = window.innerHeight;
     const max = (doc.scrollHeight - vh) || 1;
 
-    // повзунок прогресу
     const p = Math.min(1, Math.max(0, st / max));
     progressBar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
 
-    // скло навбару після першого екрана
     nav.classList.toggle('is-scrolled', st > vh * 0.55);
 
-    // дата в меню з'являється з сегмента «Our Story»
     document.body.classList.toggle('show-nav-date',
       storyScene.getBoundingClientRect().top < vh * 0.5);
 
-    // панель дій: від секції «Коли та де», ховається на RSVP і далі
     const reachedDetails = detailsSection.getBoundingClientRect().top < vh * 0.55;
     const reachedRsvp = rsvpSection.getBoundingClientRect().top < vh * 0.6;
     actionbar.classList.toggle('is-shown', reachedDetails && !reachedRsvp);
@@ -1797,9 +1662,6 @@ if (window.visualViewport){
 }
 onScroll();
 
-/* ============================================================
-   СВАЙП-КОЛОДА (адаптовано з 21st.dev Image Swiper під vanilla)
-   ============================================================ */
 const deck = document.getElementById('deck');
 const deckCount = document.getElementById('deckCount');
 let cards = [...deck.querySelectorAll('.deck-card')];
@@ -1821,22 +1683,19 @@ function advanceDeck(direction, fromDx){
   if (animLock) return;
   animLock = true;
   const top = cards[0];
-  // верхня картка вилітає; решта одразу підіймаються (плавно, свій transition)
+
   top.style.transition = 'transform .32s cubic-bezier(.5,0,.75,0), opacity .32s ease';
   top.style.setProperty('--swipe-x', (direction > 0 ? 125 : -125) + 'vw');
   top.style.setProperty('--swipe-rot', (direction > 0 ? 16 : -16) + 'deg');
   top.style.opacity = '0';
   vibrate(6);
 
-  // одразу переставляємо порядок, щоб наступна картка стала активною й підвелась
   cards.push(cards.shift());
   shownIndex = (shownIndex + 1) % totalCards;
   layoutDeck();
 
-  // коротка пауза перед наступним свайпом — можна гортати швидко
   setTimeout(() => { animLock = false; }, 170);
 
-  // прибираємо картку, що вилетіла, у стан спокою в кінці колоди
   setTimeout(() => {
     top.style.transition = 'none';
     top.style.removeProperty('--swipe-x');
@@ -1858,7 +1717,7 @@ deck.addEventListener('pointermove', (e) => {
   if (!dragging) return;
   const mx = e.clientX - startX;
   const my = e.clientY - startY;
-  // якщо жест радше вертикальний — віддаємо його сторінці (звичайний скрол)
+
   if (!locked){
     if (Math.abs(my) > Math.abs(mx) && Math.abs(my) > 10){ dragging = false; return; }
     if (Math.abs(mx) > 6){ locked = true; deck.setPointerCapture(e.pointerId); }
@@ -1886,11 +1745,6 @@ deck.addEventListener('pointercancel', endDrag);
 document.getElementById('deckNext').addEventListener('click', () => advanceDeck(1));
 document.getElementById('deckPrev').addEventListener('click', () => advanceDeck(-1));
 
-/* ============================================================
-   ДОДАТИ В КАЛЕНДАР (Google Calendar)
-   Це справжнє посилання <a href>, а не window.open — тому надійно
-   відкривається у вбудованих браузерах (Telegram, Instagram) та на iPhone.
-   ============================================================ */
 const calBtn = document.getElementById('icsBtn');
 calBtn.href = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
   + '&text=' + encodeURIComponent(EVENT.title)
@@ -1900,9 +1754,6 @@ calBtn.href = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
   + '&location=' + encodeURIComponent(EVENT.locationName);
 calBtn.addEventListener('click', () => vibrate(6));
 
-/* ============================================================
-   ПЕЛЮСТКИ НА УСПІШНИЙ RSVP (canvas, 3 секунди)
-   ============================================================ */
 function petalBurst(){
   if (reduceMotion) return;
   const canvas = document.getElementById('petals');
@@ -1950,9 +1801,6 @@ function petalBurst(){
   requestAnimationFrame(frame);
 }
 
-/* ============================================================
-   ФОРМА RSVP
-   ============================================================ */
 const form = document.getElementById('rsvpForm');
 const submitBtn = document.getElementById('rsvpSubmit');
 const statusEl = document.getElementById('formStatus');
@@ -1995,14 +1843,13 @@ async function sendRSVP(payload){
     if (!res.ok) throw new Error('Supabase: ' + res.status);
     return;
   }
-  // демо-режим
+
   const saved = JSON.parse(localStorage.getItem('rsvp_responses') || '[]');
   saved.push(payload);
   localStorage.setItem('rsvp_responses', JSON.stringify(saved));
   await new Promise(r => setTimeout(r, 650));
 }
 
-/* ІМЕНА ІНШИХ ДОРОСЛИХ: на кожного, крім самого гостя, окреме поле */
 const extraGuests = document.getElementById('extraGuests');
 const guestOrdinals = ['второго', 'третьего', 'четвёртого', 'пятого'];
 function renderExtraGuests(){
@@ -2040,7 +1887,6 @@ form.addEventListener('submit', async (e) => {
     return;
   }
 
-  // імена інших дорослих потрібні лише тим, хто прийде
   const coming = attendance.value === 'yes';
   const extraFields = [...extraGuests.querySelectorAll('.extra-guest')];
   let firstEmpty = null;
@@ -2089,20 +1935,10 @@ form.addEventListener('submit', async (e) => {
   }
 });
 
-/* ============================================================
-   ПОДАРУНОК: копіювання Zelle в буфер обміну
-   (Cash App має пряме посилання, тому просто <a>)
-
-   navigator.clipboard.writeText мовчки не працює в частині мобільних
-   браузерів і вбудованому браузері Telegram (потрібен secure context,
-   якого там іноді немає), тому є легасі-фолбек через приховане поле.
-   Підтвердження показуємо прямо на кнопці (галочка + «Copied»),
-   а не окремим рядком під нею, який на телефоні легко не помітити.
-   ============================================================ */
 async function copyText(value){
   if (navigator.clipboard && window.isSecureContext){
     try{ await navigator.clipboard.writeText(value); return true; }
-    catch(e){ /* падаємо до легасі-способу нижче */ }
+    catch(e){  }
   }
   try{
     const ta = document.createElement('textarea');
