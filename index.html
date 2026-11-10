@@ -1432,7 +1432,7 @@ const EVENT = {
 };
 
 const RSVP_CONFIG = {
-  googleSheetsWebhook: '',
+  googleSheetsWebhook: 'https://script.google.com/macros/s/AKfycbyHbv5OgmJ14zknowHFQv_fJkvIi6H54kzj1hjqBm0VCAIcWZxu--hX4dq6oJeYztFj/exec',
   airtable: { token: '', baseId: '', tableName: '' },
   supabase: { url: '', anonKey: '', table: 'rsvp' }
 };
@@ -1844,6 +1844,7 @@ async function sendRSVP(payload){
     return;
   }
 
+  if (!/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) throw new Error('RSVP endpoint is not configured');
   const saved = JSON.parse(localStorage.getItem('rsvp_responses') || '[]');
   saved.push(payload);
   localStorage.setItem('rsvp_responses', JSON.stringify(saved));
